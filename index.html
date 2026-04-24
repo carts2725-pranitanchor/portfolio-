@@ -3,40 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anchor Pranit Phutane</title>
+    <title>Anchor Pranit Phutane | Professional Host</title>
     <style>
-        body { margin: 0; background: #000; font-family: sans-serif; color: white; }
+        :root { --gold: #d4af37; --black: #0a0a0a; --white: #ffffff; }
+        body { margin: 0; background: var(--black); font-family: 'Segoe UI', Roboto, sans-serif; color: var(--white); scroll-behavior: smooth; }
+        
         .hero {
-            width: 100%;
-            height: 90vh;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent), 
-                        url('1001089154jpg.jpg');
-            background-size: cover;
-            background-position: center top;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding-bottom: 50px;
-            text-align: center;
+            height: 100vh;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('1001089154jpg.jpg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        h1 { font-size: 2.5rem; margin: 0; color: #d4af37; text-transform: uppercase; text-shadow: 2px 2px 10px #000; }
-        p { letter-spacing: 2px; margin: 5px 0; font-weight: bold; }
-        .tag-container { margin-top: 15px; }
-        .tag { border: 1px solid #d4af37; padding: 5px 15px; border-radius: 20px; margin: 5px; display: inline-block; font-size: 0.8rem; color: #d4af37; background: rgba(0,0,0,0.5); }
+        h1 { font-size: 3rem; color: var(--gold); margin: 0; text-transform: uppercase; letter-spacing: 3px; }
+        .tagline { font-size: 1.2rem; letter-spacing: 4px; margin: 10px 0; }
+
+        .section-title { text-align: center; color: var(--gold); font-size: 2.2rem; margin: 50px 0 20px; text-transform: uppercase; border-bottom: 2px solid var(--gold); display: inline-block; width: 100%; padding-bottom: 10px; }
+        
+        .gallery {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px; padding: 20px;
+        }
+        .gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 5px; border: 1px solid #333; transition: 0.3s; }
+        .gallery img:hover { border-color: var(--gold); transform: scale(1.05); }
+
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+        .video-card { background: #1a1a1a; padding: 15px; border-radius: 10px; text-align: center; border-bottom: 3px solid var(--gold); }
+        
+        .btn { background: var(--gold); color: black; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; margin-top: 10px; transition: 0.3s; }
+        .btn-fb { background: #1877F2; color: white; }
+        .btn-wa { background: #25D366; color: white; margin: 5px; }
+
+        footer { background: #000; text-align: center; padding: 50px 20px; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
     <div class="hero">
         <h1>Anchor Pranit Phutane</h1>
-        <p>YOUR ANCHOR | YOUR ENTERTAINER</p>
-        <div class="tag-container">
-            <span class="tag">Wedding</span>
-            <span class="tag">Corporate</span>
-            <span class="tag">Live Events</span>
-        </div>
+        <p class="tagline">YOUR ANCHOR | YOUR ENTERTAINER</p>
+        <a href="#contact" class="btn">Book Now</a>
     </div>
+
+    <h2 class="section-title">My Gallery</h2>
+    <div class="gallery">
+        <img src="1001089190.jpg"> <img src="1001089191.jpg">
+        <img src="1001089192.jpg"> <img src="1001089193.jpg">
+        <img src="1001089194.jpg"> <img src="1001089195.jpg">
+        <img src="1001089196.jpg"> <img src="1001089197.jpg">
+        <img src="1001089198.jpg"> <img src="1001089199.jpg">
+        <img src="1001089184.jpg"> <img src="1001089185.jpg">
+        <img src="1001089186.jpg"> <img src="1001089187.jpg">
+        <img src="1001089188.jpg"> <img src="1001089189.jpg">
+    </div>
+
+    <h2 class="section-title">Performance Videos</h2>
+    <div class="video-grid">
+        <div class="video-card"><h3>Live Show Intro</h3><a href="https://youtu.be/pq6yrNlPJ2w" class="btn" target="_blank">Watch YouTube</a></div>
+        <div class="video-card"><h3>Stage Performance</h3><a href="https://youtube.com/shorts/kMrY7GCE0MI" class="btn" target="_blank">Watch Short</a></div>
+        <div class="video-card"><h3>Event Highlight</h3><a href="https://youtube.com/shorts/0bb8E5hmp9U" class="btn" target="_blank">Watch Short</a></div>
+        <div class="video-card"><h3>Crowd Interaction</h3><a href="https://youtube.com/shorts/847_VN4Tjt4" class="btn" target="_blank">Watch Short</a></div>
+        <div class="video-card"><h3>Fun Moments</h3><a href="https://youtube.com/shorts/fCUghKoyUS4" class="btn" target="_blank">Watch Short</a></div>
+        <div class="video-card"><h3>Facebook Reel 1</h3><a href="https://www.facebook.com/share/r/1CPGd3tVk6/" class="btn btn-fb" target="_blank">Watch Reel</a></div>
+        <div class="video-card"><h3>Facebook Reel 2</h3><a href="https://www.facebook.com/share/r/1CvwzXi2rv/" class="btn btn-fb" target="_blank">Watch Reel</a></div>
+        <div class="video-card"><h3>Facebook Reel 3</h3><a href="https://www.facebook.com/share/r/1DnTn9ts7M/" class="btn btn-fb" target="_blank">Watch Reel</a></div>
+        <div class="video-card"><h3>Facebook Reel 4</h3><a href="https://www.facebook.com/share/r/1CLvunh5n9/" class="btn btn-fb" target="_blank">Watch Reel</a></div>
+        <div class="video-card"><h3>Facebook Reel 5</h3><a href="https://www.facebook.com/share/r/1DpchmNbR6/" class="btn btn-fb" target="_blank">Watch Reel</a></div>
+    </div>
+
+    <footer id="contact">
+        <h2 style="color: var(--gold);">Book Your Event</h2>
+        <p>Contact for Corporate, Weddings & Private Events</p>
+        <div style="margin: 20px 0;">
+            <a href="tel:7000046203" class="btn">Call: 7000046203</a><br>
+            <a href="https://wa.me/919993971095" class="btn btn-wa">WhatsApp: 9993971095</a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #666;">© 2026 Anchor Pranit Phutane</p>
+    </footer>
 
 </body>
 </html>
