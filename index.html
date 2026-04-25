@@ -3,124 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anchor Pranit | The National Voice</title>
+    <title>Anchor Pranit | Official Star Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --gold-fill: linear-gradient(to bottom, #cfa64e 0%, #ffffff 50%, #af8b3b 100%); --bg: #000; }
+        :root { --gold: #d4af37; --bg: #000; --text: #fff; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden; }
 
-        /* STAR ENTRY ANIMATION */
-        #star-entry {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; z-index: 10000; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; animation: slideOut 4.5s forwards;
-        }
-        .intro-word { font-size: 1.8rem; font-weight: 800; background: var(--gold-fill); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 8px; opacity: 0; animation: flashWord 1.5s forwards; }
-        @keyframes flashWord { 0% { opacity: 0; filter: blur(10px); } 100% { opacity: 1; filter: blur(0); } }
-        @keyframes slideOut { 85% { opacity: 1; } 100% { transform: translateY(-100%); visibility: hidden; } }
+        /* HERO ENTRY - HIGH IMPACT */
+        #intro-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; animation: fadeOut 4s forwards; }
+        .intro-h { font-size: 1.8rem; font-weight: 900; color: var(--gold); letter-spacing: 5px; opacity: 0; animation: zoomIn 1s forwards; text-transform: uppercase; }
+        @keyframes zoomIn { to { opacity: 1; transform: scale(1.1); } }
+        @keyframes fadeOut { 80% { opacity: 1; } 100% { transform: translateY(-100%); visibility: hidden; } }
 
-        /* TEXT FILLING DESIGN (The PRANIT Name) */
-        .hero-section { padding: 80px 20px; text-align: center; background: radial-gradient(circle, #222 0%, #000 100%); }
-        .filling-text { 
-            font-size: 4rem; font-weight: 900; text-transform: uppercase;
-            background: var(--gold-fill); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 5px 15px rgba(212,175,55,0.6));
-            letter-spacing: 2px; position: relative; display: inline-block;
-        }
-        .filling-text::after {
-            content: "PRANIT"; position: absolute; left: 0; top: 0;
-            z-index: -1; text-shadow: 4px 4px 0px #443510, 8px 8px 15px rgba(0,0,0,0.8);
-        }
+        /* TOP HEADER */
+        .header { padding: 50px 20px; text-align: center; background: linear-gradient(to bottom, #111, #000); }
+        .name-title { font-size: 3.5rem; font-weight: 900; background: linear-gradient(to bottom, #f1c40f, #e67e22); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 10px rgba(241,196,15,0.5)); margin-bottom: 10px; }
+        .hero-banner { width: 95%; max-width: 450px; border: 4px solid var(--gold); border-radius: 15px; box-shadow: 0 0 40px rgba(212,175,55,0.3); }
 
-        .hero-poster { width: 90%; max-width: 400px; border-radius: 20px; border: 2px solid #333; margin-top: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+        /* REAL INDIA MAP SECTION */
+        .map-container { padding: 40px 10px; text-align: center; position: relative; }
+        .india-bg { width: 300px; height: 350px; margin: 0 auto; position: relative; background: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/India_map_blank.svg') center/contain no-repeat; border-radius: 20px; border: 1px solid #222; }
+        .nagpur-center { position: absolute; top: 55%; left: 50%; width: 12px; height: 12px; background: #fff; border-radius: 50%; box-shadow: 0 0 20px #fff; transform: translate(-50%, -50%); }
+        .bhilai-tag { position: absolute; top: 58%; left: 52%; background: var(--gold); color: #000; font-size: 0.6rem; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
+        .ray { position: absolute; height: 2px; background: linear-gradient(90deg, #fff, var(--gold), transparent); width: 140px; top: 55%; left: 50%; transform-origin: left; animation: rays 2.5s infinite; }
+        @keyframes rays { 0% { width: 0; opacity: 1; } 100% { width: 160px; opacity: 0; } }
 
-        /* CRICKET STYLE DYNAMIC WAGON WHEEL */
-        .wagon-section { padding: 40px 20px; text-align: center; }
-        .wheel-container { 
-            width: 300px; height: 300px; margin: 0 auto; border-radius: 50%;
-            border: 1px solid #222; position: relative; background: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/India_map_blank.svg') center/contain no-repeat;
-            opacity: 0.8;
-        }
-        .hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; color: #000; padding: 4px 12px; border-radius: 50px; font-weight: 900; font-size: 0.7rem; z-index: 10; border: 2px solid #cfa64e; }
-        .laser-line { position: absolute; height: 2px; background: linear-gradient(90deg, #fff, #cfa64e, transparent); width: 140px; top: 50%; left: 50%; transform-origin: left; animation: laser 3s infinite; }
-        @keyframes laser { 0% { width: 0; opacity: 1; } 100% { width: 160px; opacity: 0; } }
+        /* 10 VIDEOS SECTION */
+        .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 20px; scroll-snap-type: x mandatory; }
+        .v-item { flex: 0 0 85%; height: 450px; border-radius: 20px; border: 2px solid #333; overflow: hidden; scroll-snap-align: center; background: #111; }
 
-        /* VIDEO & GALLERY POPUP */
-        .v-scroll { display: flex; overflow-x: auto; gap: 15px; padding: 20px; }
-        .v-item { flex: 0 0 85%; height: 500px; border-radius: 25px; overflow: hidden; border: 2px solid #222; }
+        /* 16 PHOTOS GALLERY */
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; }
+        .gallery img { width: 100%; height: 130px; object-fit: cover; border-radius: 10px; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
         
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 20px; }
-        .gallery img { width: 100%; height: 140px; object-fit: cover; border-radius: 12px; transition: 0.3s; }
-        .gallery img:active { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2.5); z-index: 11000; box-shadow: 0 0 0 1000px rgba(0,0,0,0.9); }
+        /* IMAGE POPUP (LIGHTBOX) */
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 100000; display: none; justify-content: center; align-items: center; }
+        #lightbox img { max-width: 90%; max-height: 80%; border: 3px solid var(--gold); border-radius: 10px; }
 
-        /* DIGITAL VISITING CARD AUTOMATION BAR */
-        .visiting-card-bar { 
-            position: fixed; bottom: 0; width: 100%; background: linear-gradient(to top, #111, rgba(0,0,0,0.9));
-            border-top: 1px solid #cfa64e; display: flex; justify-content: space-around; padding: 15px 0; z-index: 1000;
-        }
-        .nav-btn { color: #fff; text-decoration: none; text-align: center; font-weight: bold; font-size: 0.7rem; }
-        .wa-glow { color: #25d366; font-size: 1.6rem; filter: drop-shadow(0 0 5px #25d366); }
+        /* CONTACT CARD BAR */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 3px solid var(--gold); display: flex; justify-content: space-around; padding: 15px 0; z-index: 1000; box-shadow: 0 -10px 30px rgba(0,0,0,1); }
+        .c-item { color: #fff; text-decoration: none; text-align: center; font-size: 0.8rem; font-weight: bold; }
+        .num-text { color: var(--gold); font-size: 1rem; display: block; margin-top: 2px; }
+        .wa-green { color: #25d366; font-size: 1.5rem; }
+
+        .footer { padding: 40px 20px 150px; text-align: center; color: #555; font-size: 0.8rem; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
-    <div id="star-entry">
-        <div class="intro-word" style="animation-delay: 0.5s;">THE VOICE</div>
-        <div class="intro-word" style="animation-delay: 1.5s;">THE ENERGY</div>
-        <div class="intro-word" style="animation-delay: 2.5s;">PRANIT ANCHOR</div>
+    <div id="intro-loader">
+        <div class="intro-h" style="animation-delay: 0.5s;">THE VOICE</div>
+        <div class="intro-h" style="animation-delay: 1.5s;">THE ENERGY</div>
+        <div class="intro-h" style="animation-delay: 2.5s;">ANCHOR PRANIT</div>
     </div>
 
-    <div class="hero-section">
-        <h1 class="filling-text">PRANIT</h1>
-        <p style="color: #aaa; letter-spacing: 5px; margin-top: 10px;">BHILAI'S PRIDE • INDIA'S VOICE</p>
-        <img src="1001089154jpg.jpg" class="hero-poster">
+    <div class="header">
+        <h1 class="name-title">PRANIT</h1>
+        <p style="color: #666; letter-spacing: 5px; font-weight: bold;">INDIA'S CELEBRITY HOST</p>
+        <img src="1001089154jpg.jpg" class="hero-banner" alt="Pranit Anchor">
     </div>
 
-    <div class="wagon-section">
-        <h2 style="color: #cfa64e; letter-spacing: 3px; margin-bottom: 20px;">NATIONAL FOOTPRINT</h2>
-        <div class="wheel-container">
-            <div class="hub">BHILAI</div>
-            <div class="laser-line" style="transform: rotate(0deg);"></div>
-            <div class="laser-line" style="transform: rotate(60deg); animation-delay: 0.5s;"></div>
-            <div class="laser-line" style="transform: rotate(120deg); animation-delay: 1s;"></div>
-            <div class="laser-line" style="transform: rotate(180deg); animation-delay: 1.5s;"></div>
-            <div class="laser-line" style="transform: rotate(240deg); animation-delay: 2s;"></div>
-            <div class="laser-line" style="transform: rotate(300deg); animation-delay: 2.5s;"></div>
+    <div class="map-container">
+        <h2 style="color: var(--gold); margin-bottom: 20px;">PAN INDIA PRESENCE</h2>
+        <div class="india-bg">
+            <div class="nagpur-center"></div>
+            <div class="bhilai-tag">CHARODA / BHILAI</div>
+            <div class="ray" style="transform: rotate(0deg);"></div>
+            <div class="ray" style="transform: rotate(45deg); animation-delay: 0.3s;"></div>
+            <div class="ray" style="transform: rotate(135deg); animation-delay: 0.6s;"></div>
+            <div class="ray" style="transform: rotate(225deg); animation-delay: 0.9s;"></div>
+            <div class="ray" style="transform: rotate(270deg); animation-delay: 1.2s;"></div>
         </div>
-        <p style="color: #666; font-size: 0.7rem; margin-top: 15px;">MUMBAI • DELHI • PUNE • GOA • INDORE</p>
+        <p style="margin-top: 20px; font-size: 0.75rem; color: #888;">MUMBAI • DELHI • PUNE • GOA • INDORE • RAIPUR</p>
     </div>
 
-    <h2 style="text-align: center; color: #cfa64e; margin-top: 40px;">PERFORMANCES</h2>
-    <div class="v-scroll">
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0"></iframe></div>
+    <h2 style="text-align: center; color: var(--gold); margin-bottom: 20px;">10 STAR PERFORMANCES</h2>
+    <div class="v-slider">
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0" allowfullscreen></iframe></div>
     </div>
 
-    <h2 style="text-align: center; color: #cfa64e; margin-top: 40px;">MOMENTS</h2>
+    <h2 style="text-align: center; color: var(--gold); margin: 30px 0;">16 STAR MOMENTS</h2>
     <div class="gallery">
-        <img src="FB_IMG_1776976796509.jpg">
-        <img src="FB_IMG_1776976802542.jpg">
-        <img src="FB_IMG_1776976813216.jpg">
-        <img src="FB_IMG_1776976829871.jpg">
-        <img src="FB_IMG_1776976838389.jpg">
-        <img src="FB_IMG_1776976845221.jpg">
+        <img src="FB_IMG_1776976796509.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976802542.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976829871.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976838389.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976845221.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976796509.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976802542.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976829871.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976838389.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976845221.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976796509.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976802542.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976829871.jpg" onclick="showImg(this.src)">
     </div>
 
-    <footer style="padding: 40px 20px 120px; text-align: center; color: #444;">
-        <p>Charoda, Bhilai, Chhattisgarh</p>
-        <p style="margin-top: 15px;">Branding by <span style="color: #cfa64e; font-weight: bold;">Prachi CREATION</span></p>
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="pop-img" src="">
+    </div>
+
+    <footer class="footer">
+        <p>CHARODA, BHILAI, CHHATTISGARH</p>
+        <p style="margin-top: 15px;">Official Portfolio by <span style="color: var(--gold); font-weight: bold;">Prachi CREATION</span></p>
     </footer>
 
-    <div class="visiting-card-bar">
-        <a href="tel:7000046203" class="nav-btn">
-            <i class="fas fa-phone-alt" style="color: #cfa64e; font-size: 1.4rem;"></i><br>CALL NOW
+    <div class="contact-bar">
+        <a href="tel:7000046203" class="c-item">
+            <i class="fas fa-phone-alt" style="color: var(--gold);"></i> CALL NOW
+            <span class="num-text">7000046203</span>
         </a>
-        <a href="https://wa.me/917000046203" class="nav-btn">
-            <i class="fab fa-whatsapp wa-glow"></i><br>WHATSAPP
+        <a href="https://wa.me/917000046203" class="c-item">
+            <i class="fab fa-whatsapp wa-green"></i> WHATSAPP
+            <span class="num-text">917000046203</span>
         </a>
     </div>
+
+    <script>
+        function showImg(src) {
+            document.getElementById('pop-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+    </script>
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchor Pranit | Official Star Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --gold: #d4af37; --bg: #000; --text: #fff; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden; }
+
+        /* HERO ENTRY - HIGH IMPACT */
+        #intro-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; animation: fadeOut 4s forwards; }
+        .intro-h { font-size: 1.8rem; font-weight: 900; color: var(--gold); letter-spacing: 5px; opacity: 0; animation: zoomIn 1s forwards; text-transform: uppercase; }
+        @keyframes zoomIn { to { opacity: 1; transform: scale(1.1); } }
+        @keyframes fadeOut { 80% { opacity: 1; } 100% { transform: translateY(-100%); visibility: hidden; } }
+
+        /* TOP HEADER */
+        .header { padding: 50px 20px; text-align: center; background: linear-gradient(to bottom, #111, #000); }
+        .name-title { font-size: 3.5rem; font-weight: 900; background: linear-gradient(to bottom, #f1c40f, #e67e22); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 10px rgba(241,196,15,0.5)); margin-bottom: 10px; }
+        .hero-banner { width: 95%; max-width: 450px; border: 4px solid var(--gold); border-radius: 15px; box-shadow: 0 0 40px rgba(212,175,55,0.3); }
+
+        /* REAL INDIA MAP SECTION */
+        .map-container { padding: 40px 10px; text-align: center; position: relative; }
+        .india-bg { width: 300px; height: 350px; margin: 0 auto; position: relative; background: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/India_map_blank.svg') center/contain no-repeat; border-radius: 20px; border: 1px solid #222; }
+        .nagpur-center { position: absolute; top: 55%; left: 50%; width: 12px; height: 12px; background: #fff; border-radius: 50%; box-shadow: 0 0 20px #fff; transform: translate(-50%, -50%); }
+        .bhilai-tag { position: absolute; top: 58%; left: 52%; background: var(--gold); color: #000; font-size: 0.6rem; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
+        .ray { position: absolute; height: 2px; background: linear-gradient(90deg, #fff, var(--gold), transparent); width: 140px; top: 55%; left: 50%; transform-origin: left; animation: rays 2.5s infinite; }
+        @keyframes rays { 0% { width: 0; opacity: 1; } 100% { width: 160px; opacity: 0; } }
+
+        /* 10 VIDEOS SECTION */
+        .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 20px; scroll-snap-type: x mandatory; }
+        .v-item { flex: 0 0 85%; height: 450px; border-radius: 20px; border: 2px solid #333; overflow: hidden; scroll-snap-align: center; background: #111; }
+
+        /* 16 PHOTOS GALLERY */
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; }
+        .gallery img { width: 100%; height: 130px; object-fit: cover; border-radius: 10px; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
+        
+        /* IMAGE POPUP (LIGHTBOX) */
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 100000; display: none; justify-content: center; align-items: center; }
+        #lightbox img { max-width: 90%; max-height: 80%; border: 3px solid var(--gold); border-radius: 10px; }
+
+        /* CONTACT CARD BAR */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 3px solid var(--gold); display: flex; justify-content: space-around; padding: 15px 0; z-index: 1000; box-shadow: 0 -10px 30px rgba(0,0,0,1); }
+        .c-item { color: #fff; text-decoration: none; text-align: center; font-size: 0.8rem; font-weight: bold; }
+        .num-text { color: var(--gold); font-size: 1rem; display: block; margin-top: 2px; }
+        .wa-green { color: #25d366; font-size: 1.5rem; }
+
+        .footer { padding: 40px 20px 150px; text-align: center; color: #555; font-size: 0.8rem; border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+
+    <div id="intro-loader">
+        <div class="intro-h" style="animation-delay: 0.5s;">THE VOICE</div>
+        <div class="intro-h" style="animation-delay: 1.5s;">THE ENERGY</div>
+        <div class="intro-h" style="animation-delay: 2.5s;">ANCHOR PRANIT</div>
+    </div>
+
+    <div class="header">
+        <h1 class="name-title">PRANIT</h1>
+        <p style="color: #666; letter-spacing: 5px; font-weight: bold;">INDIA'S CELEBRITY HOST</p>
+        <img src="1001089154jpg.jpg" class="hero-banner" alt="Pranit Anchor">
+    </div>
+
+    <div class="map-container">
+        <h2 style="color: var(--gold); margin-bottom: 20px;">PAN INDIA PRESENCE</h2>
+        <div class="india-bg">
+            <div class="nagpur-center"></div>
+            <div class="bhilai-tag">CHARODA / BHILAI</div>
+            <div class="ray" style="transform: rotate(0deg);"></div>
+            <div class="ray" style="transform: rotate(45deg); animation-delay: 0.3s;"></div>
+            <div class="ray" style="transform: rotate(135deg); animation-delay: 0.6s;"></div>
+            <div class="ray" style="transform: rotate(225deg); animation-delay: 0.9s;"></div>
+            <div class="ray" style="transform: rotate(270deg); animation-delay: 1.2s;"></div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.75rem; color: #888;">MUMBAI • DELHI • PUNE • GOA • INDORE • RAIPUR</p>
+    </div>
+
+    <h2 style="text-align: center; color: var(--gold); margin-bottom: 20px;">10 STAR PERFORMANCES</h2>
+    <div class="v-slider">
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0" allowfullscreen></iframe></div>
+    </div>
+
+    <h2 style="text-align: center; color: var(--gold); margin: 30px 0;">16 STAR MOMENTS</h2>
+    <div class="gallery">
+        <img src="FB_IMG_1776976796509.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976802542.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976829871.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976838389.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976845221.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976796509.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976802542.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976829871.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976838389.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976845221.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976796509.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976802542.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="showImg(this.src)">
+        <img src="FB_IMG_1776976829871.jpg" onclick="showImg(this.src)">
+    </div>
+
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="pop-img" src="">
+    </div>
+
+    <footer class="footer">
+        <p>CHARODA, BHILAI, CHHATTISGARH</p>
+        <p style="margin-top: 15px;">Official Portfolio by <span style="color: var(--gold); font-weight: bold;">Prachi CREATION</span></p>
+    </footer>
+
+    <div class="contact-bar">
+        <a href="tel:7000046203" class="c-item">
+            <i class="fas fa-phone-alt" style="color: var(--gold);"></i> CALL NOW
+            <span class="num-text">7000046203</span>
+        </a>
+        <a href="https://wa.me/917000046203" class="c-item">
+            <i class="fab fa-whatsapp wa-green"></i> WHATSAPP
+            <span class="num-text">917000046203</span>
+        </a>
+    </div>
+
+    <script>
+        function showImg(src) {
+            document.getElementById('pop-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
+￼Enter
