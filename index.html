@@ -12,20 +12,89 @@
         .header { padding: 40px 20px; }
         .shaan { color: #fff; letter-spacing: 3px; font-size: 1.1rem; text-transform: uppercase; }
         .name { font-size: 3.2rem; color: var(--gold); font-weight: 900; text-transform: uppercase; }
+        
+        /* BANNER SETTINGS */
         .hero-banner { width: 92%; max-width: 450px; border: 3px solid var(--gold); border-radius: 20px; margin: 20px auto; display: block; }
+        
         .section-h { color: var(--gold); margin: 40px 0 20px; font-size: 1.5rem; text-transform: uppercase; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 5px; }
+        
+        /* VIDEOS SLIDER */
         .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 15px; }
         .v-item { flex: 0 0 85%; height: 400px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
+        
+        /* 16 PHOTOS - RECTIFIED FILENAMES */
         .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
         .gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; border: 2px solid #222; cursor: pointer; }
+        
+        /* POP-UP BOX */
         #img-modal { display: none; position: fixed; z-index: 100000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
         #modal-img { max-width: 95%; max-height: 85%; border: 2px solid var(--gold); border-radius: 10px; }
+        
+        /* RATINGS */
         .rating-section { background: #080808; padding: 40px 20px; border-top: 3px solid var(--gold); margin-top: 50px; }
         .rating-box { background: #151515; padding: 20px; border-radius: 20px; border: 1px solid var(--gold); margin-bottom: 20px; text-align: left; }
         .stars { color: var(--gold); font-size: 1rem; margin-bottom: 5px; }
+        
+        /* FOOTER BAR */
         .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: grid; grid-template-columns: 1fr 1fr; padding: 12px 10px; z-index: 9999; gap: 10px; }
         .c-btn { color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: bold; background: #111; border-radius: 15px; border: 1px solid #333; padding: 10px 5px; }
         .g-num { color: var(--gold); font-size: 0.9rem; display: block; }
+
+        /* V2 MAP STYLING */
+        .map-section {
+            background-color: #111;
+            padding: 40px 20px;
+            margin: 40px 0;
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .india-map {
+            width: 100%;
+            display: block;
+        }
+
+        /* Plane styling */
+        .plane {
+            position: absolute;
+            background-image: url('plane.png'); /* Replace with the actual plane image filename */
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+            animation: movePlane 10s infinite;
+        }
+
+        /* City names style */
+        .city-name {
+            position: absolute;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0;
+            animation: flashCity 2s linear infinite;
+        }
+
+        /* Animation for planes */
+        @keyframes movePlane {
+            0% { top: 10%; left: 10%; }
+            50% { top: 50%; left: 50%; }
+            100% { top: 90%; left: 90%; }
+        }
+
+        /* Animation for flashing city names */
+        @keyframes flashCity {
+            0%, 50%, 100% { opacity: 0; }
+            25%, 75% { opacity: 1; }
+        }
+
     </style>
 </head>
 <body>
@@ -33,7 +102,8 @@
         <p class="shaan">BHILAI KI SHAAN</p>
         <h1 class="name">ANCHOR PRANIT</h1>
     </div>
-    <img src="1001091160.jpg" class="hero-banner">
+    
+    <img src="1001089154jpg.jpg" class="hero-banner">
     
     <h2 class="section-h">10 STAR PERFORMANCES</h2>
     <div class="v-slider">
@@ -49,16 +119,26 @@
         <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0"></iframe></div>
     </div>
 
+    <div class="map-section">
+        <h2 class="section-h">INDIA WIDE PRESENCE</h2>
+        <div class="map-wrapper">
+            <img src="india-map.png" class="india-map" alt="India Map with State Borders"> <div class="plane"></div>
+            <div class="city-name" style="top: 20%; left: 30%;">Delhi</div>
+            <div class="city-name" style="top: 50%; left: 60%;">Mumbai</div>
+            <div class="city-name" style="top: 80%; left: 40%;">Chennai</div>
+        </div>
+    </div>
+
     <h2 class="section-h">16 STAR MOMENTS</h2>
     <div class="gallery">
-        <img src="1001091161.jpg" onclick="openPic(this.src)"> <img src="1001091171.jpg" onclick="openPic(this.src)">
-        <img src="1001091172.jpg" onclick="openPic(this.src)"> <img src="1001091170.jpg" onclick="openPic(this.src)">
-        <img src="1001091161.jpg" onclick="openPic(this.src)"> <img src="1001091171.jpg" onclick="openPic(this.src)">
-        <img src="1001091172.jpg" onclick="openPic(this.src)"> <img src="1001091170.jpg" onclick="openPic(this.src)">
-        <img src="1001091161.jpg" onclick="openPic(this.src)"> <img src="1001091171.jpg" onclick="openPic(this.src)">
-        <img src="1001091172.jpg" onclick="openPic(this.src)"> <img src="1001091170.jpg" onclick="openPic(this.src)">
-        <img src="1001091161.jpg" onclick="openPic(this.src)"> <img src="1001091171.jpg" onclick="openPic(this.src)">
-        <img src="1001091172.jpg" onclick="openPic(this.src)"> <img src="1001091170.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976796509.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976802542.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976829871.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976838389.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976845221.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976851032.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976855569.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976877866.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976891342.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976899364.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976921737.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976930511.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976944210.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976954929.jpg" onclick="openPic(this.src)"> <img src="1001089154jpg.jpg" onclick="openPic(this.src)">
     </div>
 
     <div id="img-modal" onclick="this.style.display='none'"><img id="modal-img"></div>
@@ -66,11 +146,11 @@
     <div class="rating-section">
         <h2 class="section-h">CLIENT REVIEWS</h2>
         <div class="rating-box"><div class="stars">★★★★★</div><p>"Amazing energy! Event ki jaan hain Pranit."</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Bhilai's pride. Professional and punctual."</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Great voice control and crowd management."</p></div>
+        <div class="rating-box"><div class="stars">★★★★★</div><p>"Bhilai's pride. Professional hosting."</p></div>
+        <div class="rating-box"><div class="stars">★★★★★</div><p>"Great voice quality and crowd management."</p></div>
         <div class="rating-box"><div class="stars">★★★★★</div><p>"Corporate events ke liye best anchor!"</p></div>
         <div class="rating-box"><div class="stars">★★★★★</div><p>"Sangeet night memorable bana di. Thank you!"</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Highly recommended for pan-India shows."</p></div>
+        <div class="rating-box"><div class="stars">★★★★★</div><p>"Highly recommended for concerts."</p></div>
         <div class="rating-box"><div class="stars">★★★★★</div><p>"Pure entertainment and high class hosting."</p></div>
     </div>
 
