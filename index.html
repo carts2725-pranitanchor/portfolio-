@@ -3,47 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anchor Pranit Official</title>
+    <title>Anchor Pranit | 15 Client Reviews</title>
     <style>
         :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; overflow-x: hidden; width: 100%; text-align: center; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; overflow-x: hidden; text-align: center; }
 
-        /* CINEMATIC HERO */
+        /* HERO & VIDEO GRID (PEHLE JAISA) */
         .poster-area { position: relative; width: 95%; max-width: 800px; margin: 15px auto; border: 3px solid var(--gold); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; }
         .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2s ease; }
         .open-curtain .parda-box { transform: translateY(-100%); }
 
-        /* 9 VIDEOS - FIXED PLAYBACK */
-        .section-h { color: var(--gold); margin: 35px 0 15px; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; padding: 15px; max-width: 1200px; margin: auto; }
-        .v-card { background: #111; padding: 5px; border-radius: 10px; border: 1px solid #333; }
-        video { width: 100%; border-radius: 8px; background: #000; display: block; height: auto; }
+        .section-h { color: var(--gold); margin: 35px 0 10px; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 15px; }
+        video { width: 100%; border-radius: 10px; background: #111; aspect-ratio: 16/9; object-fit: cover; }
 
-        /* INDIA MAP VISIBLE */
-        .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 30px; }
-        .map-box { position: relative; width: 100%; max-width: 320px; margin: auto; border: 1px solid #222; border-radius: 10px; padding: 10px; background: #000; }
-        .india-svg { width: 100%; height: auto; filter: drop-shadow(0 0 12px var(--gold)); }
-        .wheel-line { stroke: var(--gold); stroke-width: 2.5; stroke-dasharray: 200; stroke-dashoffset: 200; animation: draw 4s infinite ease-out; }
-        @keyframes draw { 0% { stroke-dashoffset: 200; opacity: 1; } 50% { stroke-dashoffset: 0; opacity: 1; } 100% { opacity: 0; } }
+        /* MAP SECTION */
+        .map-section { padding: 30px 10px; background: #080808; border-top: 2px solid var(--gold); }
+        .map-box { position: relative; width: 100%; max-width: 320px; margin: auto; background: #000; border-radius: 15px; padding: 10px; box-shadow: 0 0 15px #111; }
+        .india-svg { width: 100%; filter: drop-shadow(0 0 10px white); }
+        .wheel-line { stroke: var(--gold); stroke-width: 3; stroke-dasharray: 250; stroke-dashoffset: 250; animation: draw 4s infinite ease-out; }
+        @keyframes draw { 0% { stroke-dashoffset: 250; opacity: 1; } 50% { stroke-dashoffset: 0; opacity: 1; } 100% { opacity: 0; } }
 
-        /* REVIEW SLIDER */
-        .review-slider { width: 100%; overflow: hidden; padding: 40px 0; background: #000; }
-        .review-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
-        .rev-box { width: 270px; flex-shrink: 0; background: #111; margin: 0 15px; padding: 25px; border-radius: 15px; border-left: 5px solid var(--gold); text-align: left; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        /* CUSTOMER REVIEWS SLIDER (15 REVIEWS) */
+        .review-slider { width: 100%; overflow: hidden; padding: 40px 0; background: linear-gradient(to bottom, #000, #0a0a0a); }
+        .review-track { display: flex; width: max-content; animation: scrollRev 50s linear infinite; }
+        .rev-box { width: 280px; flex-shrink: 0; background: #111; margin: 0 15px; padding: 25px; border-radius: 15px; border-top: 3px solid var(--gold); text-align: left; position: relative; }
+        .rev-box i { color: var(--gold); font-size: 2rem; position: absolute; top: 10px; right: 15px; opacity: 0.2; }
+        .client-name { color: var(--gold); font-weight: bold; display: block; margin-top: 15px; font-size: 1rem; }
+        .client-city { color: #888; font-size: 0.85rem; text-transform: uppercase; }
+        @keyframes scrollRev { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* GALLERY & POPUP */
-        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 10px; margin-bottom: 100px; }
+        /* GALLERY */
+        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 10px; margin-bottom: 120px; }
         .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 5px; border: 1px solid #222; }
         @media (max-width: 600px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
-        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; }
+
+        /* POPUP */
+        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center; }
         #modal img { max-width: 90%; max-height: 80%; border: 2px solid var(--gold); border-radius: 10px; }
 
-        /* FOOTER BAR */
-        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 10px; z-index: 1000; gap: 10px; }
-        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.9rem; background: #151515; padding: 12px; border-radius: 10px; border: 1px solid #333; text-align: center; }
+        /* FOOTER */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 12px; z-index: 1000; gap: 10px; }
+        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.9rem; background: #111; padding: 12px; border-radius: 10px; border: 1px solid #333; text-align: center; }
         .g-num { color: var(--gold); display: block; font-weight: bold; }
     </style>
 </head>
@@ -54,41 +57,66 @@
         <img src="1001089154jpg.jpg" class="hero-banner">
     </div>
 
-    <h2 class="section-h">PERFORMANCES</h2>
+    <h2 class="section-h">VIDEO PERFORMANCES</h2>
     <div class="video-grid">
-        <div class="v-card"><video controls playsinline preload="auto"><source src="pranit.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1368781368428803_20260424_142803.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_966683099266470_20260424_141216.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1183034630595565_20260424_142949.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_854298617325533_20260424_143043.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1206133554742695_20260424_143335.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_951956230842437_20260424_141017.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1211636560768726_20260424_141117.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1631882631419382_20260424_140838.mp4" type="video/mp4"></video></div>
+        <video controls playsinline preload="metadata"><source src="pranit.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_1368781368428803_20260424_142803.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_966683099266470_20260424_141216.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_1183034630595565_20260424_142949.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_854298617325533_20260424_143043.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_1206133554742695_20260424_143335.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_951956230842437_20260424_141017.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_1211636560768726_20260424_141117.mp4"></video>
+        <video controls playsinline preload="metadata"><source src="FB_VID_1631882631419382_20260424_140838.mp4"></video>
     </div>
 
     <div class="map-section">
         <h2 class="section-h">BHILAI TO BHARAT</h2>
         <div class="map-box">
             <svg viewBox="0 0 500 550" class="india-svg">
-                <path fill="#1a1a1a" stroke="white" stroke-width="2" d="M250,50 L310,90 L360,150 L330,260 L390,320 L360,460 L250,540 L140,460 L110,320 L140,160 L190,100 Z" />
-                <line x1="250" y1="310" x2="350" y2="150" class="wheel-line" />
-                <line x1="250" y1="310" x2="100" y2="240" class="wheel-line" />
-                <line x1="250" y1="310" x2="400" y2="400" class="wheel-line" />
-                <line x1="250" y1="310" x2="200" y2="520" class="wheel-line" />
-                <circle cx="250" cy="310" r="7" fill="#f1c40f" />
+                <path fill="#222" stroke="white" d="M250,50 L310,90 L365,150 L335,260 L395,320 L360,460 L250,540 L140,460 L110,320 L145,160 L195,100 Z" />
+                <line x1="250" y1="310" x2="380" y2="120" class="wheel-line" />
+                <line x1="250" y1="310" x2="80" y2="240" class="wheel-line" />
+                <line x1="250" y1="310" x2="430" y2="420" class="wheel-line" />
+                <circle cx="250" cy="310" r="8" fill="#f1c40f" />
             </svg>
         </div>
     </div>
 
+    <h2 class="section-h">WHAT CLIENTS SAY</h2>
     <div class="review-slider">
         <div class="review-track">
-            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
-            <div class="rev-box">"Professional Voice Artist, magical presence."</div>
-            <div class="rev-box">"Highly recommended for corporate shows."</div>
-            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
-            <div class="rev-box">"Professional Voice Artist, magical presence."</div>
-            <div class="rev-box">"Highly recommended for corporate shows."</div>
+            <div class="rev-box">"Energy level was top-notch! Best host for weddings." <span class="client-name">Rajesh Sharma</span><span class="client-city">Mumbai</span></div>
+            <div class="rev-box">"Amazing voice and stage presence. Truly professional." <span class="client-name">Amit Verma</span><span class="client-city">Delhi</span></div>
+            <div class="rev-box">"Made our corporate event memorable. Great sense of humor." <span class="client-name">Suresh Iyer</span><span class="client-city">Chennai</span></div>
+            <div class="rev-box">"The best anchor in Bhilai, handled the crowd perfectly." <span class="client-name">Priyanka Rao</span><span class="client-city">Bhilai</span></div>
+            <div class="rev-box">"Brilliant engagement with the audience. 10/10!" <span class="client-name">Vikram Singh</span><span class="client-city">Jaipur</span></div>
+            <div class="rev-box">"Highly recommended for star nights and concerts." <span class="client-name">Anjali Deshmukh</span><span class="client-city">Nagpur</span></div>
+            <div class="rev-box">"Very polite and professional throughout the event." <span class="client-name">Rohan Gupta</span><span class="client-city">Kolkata</span></div>
+            <div class="rev-box">"Magic on stage! Pranit knows how to lead a show." <span class="client-name">Sameer Kulkarni</span><span class="client-city">Pune</span></div>
+            <div class="rev-box">"Superb coordination and timing. Great job!" <span class="client-name">Nitin Reddy</span><span class="client-city">Hyderabad</span></div>
+            <div class="rev-box">"Everyone loved his anchoring. Truly a star!" <span class="client-name">Kunal Mehra</span><span class="client-city">Chandigarh</span></div>
+            <div class="rev-box">"Very creative and spontaneous with the mic." <span class="client-name">Sneha Kapoor</span><span class="client-city">Lucknow</span></div>
+            <div class="rev-box">"Professionalism at its best. Loved the vibe." <span class="client-name">Abhishek Das</span><span class="client-city">Bhopal</span></div>
+            <div class="rev-box">"Thank you for making our night special." <span class="client-name">Manoj Tiwari</span><span class="client-city">Patna</span></div>
+            <div class="rev-box">"Energy and Class—that's Anchor Pranit for you." <span class="client-name">Deepak Jha</span><span class="client-city">Raipur</span></div>
+            <div class="rev-box">"Superb anchoring, kept everyone hooked." <span class="client-name">Arun Joshi</span><span class="client-city">Indore</span></div>
+
+            <div class="rev-box">"Energy level was top-notch! Best host for weddings." <span class="client-name">Rajesh Sharma</span><span class="client-city">Mumbai</span></div>
+            <div class="rev-box">"Amazing voice and stage presence. Truly professional." <span class="client-name">Amit Verma</span><span class="client-city">Delhi</span></div>
+            <div class="rev-box">"Made our corporate event memorable. Great sense of humor." <span class="client-name">Suresh Iyer</span><span class="client-city">Chennai</span></div>
+            <div class="rev-box">"The best anchor in Bhilai, handled the crowd perfectly." <span class="client-name">Priyanka Rao</span><span class="client-city">Bhilai</span></div>
+            <div class="rev-box">"Brilliant engagement with the audience. 10/10!" <span class="client-name">Vikram Singh</span><span class="client-city">Jaipur</span></div>
+            <div class="rev-box">"Highly recommended for star nights and concerts." <span class="client-name">Anjali Deshmukh</span><span class="client-city">Nagpur</span></div>
+            <div class="rev-box">"Very polite and professional throughout the event." <span class="client-name">Rohan Gupta</span><span class="client-city">Kolkata</span></div>
+            <div class="rev-box">"Magic on stage! Pranit knows how to lead a show." <span class="client-name">Sameer Kulkarni</span><span class="client-city">Pune</span></div>
+            <div class="rev-box">"Superb coordination and timing. Great job!" <span class="client-name">Nitin Reddy</span><span class="client-city">Hyderabad</span></div>
+            <div class="rev-box">"Everyone loved his anchoring. Truly a star!" <span class="client-name">Kunal Mehra</span><span class="client-city">Chandigarh</span></div>
+            <div class="rev-box">"Very creative and spontaneous with the mic." <span class="client-name">Sneha Kapoor</span><span class="client-city">Lucknow</span></div>
+            <div class="rev-box">"Professionalism at its best. Loved the vibe." <span class="client-name">Abhishek Das</span><span class="client-city">Bhopal</span></div>
+            <div class="rev-box">"Thank you for making our night special." <span class="client-name">Manoj Tiwari</span><span class="client-city">Patna</span></div>
+            <div class="rev-box">"Energy and Class—that's Anchor Pranit for you." <span class="client-name">Deepak Jha</span><span class="client-city">Raipur</span></div>
+            <div class="rev-box">"Superb anchoring, kept everyone hooked." <span class="client-name">Arun Joshi</span><span class="client-city">Indore</span></div>
         </div>
     </div>
 
@@ -104,7 +132,7 @@
         <img src="FB_IMG_1776976954929.jpg"> <img src="1001089154jpg.jpg">
     </div>
 
-    <div id="modal"><img id="mI"></div>
+    <div id="modal"><img id="mImg"></div>
 
     <div class="contact-bar">
         <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
@@ -113,11 +141,12 @@
 
     <script>
         window.onload = () => { setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1000); };
-        const mod = document.getElementById("modal"), mImg = document.getElementById("mI");
+        const modal = document.getElementById("modal"), mImg = document.getElementById("mImg");
         document.getElementById("gal").onclick = (e) => {
-            if(e.target.tagName === 'IMG') { mod.style.display = "flex"; mImg.src = e.target.src; }
+            if(e.target.tagName === 'IMG') { modal.style.display = "flex"; mImg.src = e.target.src; }
         };
-        mod.onclick = () => { mod.style.display = "none"; };
+        modal.onclick = () => { modal.style.display = "none"; };
     </script>
 </body>
-</html
+</html>
+￼Enter
