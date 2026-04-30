@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anchor Pranit Official</title>
+    <title>Anchor Pranit | All 9 Videos</title>
     <style>
         :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,38 +15,28 @@
         .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2s ease-in-out; }
         .open-curtain .parda-box { transform: translateY(-100%); }
 
-        /* 9 VIDEOS - FIXED FOR MOBILE */
+        /* VIDEO GRID STYLING */
         .section-h { color: var(--gold); margin: 35px 0 10px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 15px; max-width: 1200px; margin: auto; }
-        .v-card { background: #111; padding: 8px; border-radius: 15px; border: 1px solid #333; }
-        /* Playsinline and Muted are keys for mobile autoplay/play */
-        video { width: 100%; border-radius: 10px; background: #000; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: pointer; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 15px; max-width: 1200px; margin: auto; }
+        .v-card { background: #111; padding: 8px; border-radius: 15px; border: 1px solid #333; overflow: hidden; }
+        video, iframe { width: 100%; border-radius: 10px; background: #000; display: block; aspect-ratio: 16/9; border: none; }
 
-        /* INDIA MAP - BHILAI TO BHARAT (REPLACED WITH NEW PNG) */
+        /* INDIA MAP */
         .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 20px; }
         .map-box { position: relative; width: 100%; max-width: 350px; margin: 20px auto; background: #000; border-radius: 20px; padding: 10px; border: 1px solid #222; }
         .india-png { width: 100%; height: auto; filter: drop-shadow(0 0 15px var(--gold)); opacity: 0.9; }
-        
-        /* Wagon Wheel Animation Over Map */
-        .wheel-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-        .line { stroke: var(--gold); stroke-width: 3; stroke-dasharray: 200; stroke-dashoffset: 200; animation: draw 4s infinite; }
-        @keyframes draw { to { stroke-dashoffset: 0; } }
 
         /* REVIEWS SLIDER */
         .review-slider { width: 100%; overflow: hidden; padding: 40px 0; }
-        .review-track { display: flex; width: max-content; animation: scroll 45s linear infinite; }
+        .review-track { display: flex; width: max-content; animation: scroll 50s linear infinite; }
         .rev-box { width: 280px; flex-shrink: 0; background: #111; margin: 0 15px; padding: 25px; border-radius: 15px; border-top: 4px solid var(--gold); text-align: left; }
-        .client-name { color: var(--gold); font-weight: bold; display: block; margin-top: 10px; }
+        .client-name { color: var(--gold); font-weight: bold; display: block; margin-top: 10px; font-size: 0.95rem; }
         .client-city { color: #888; font-size: 0.8rem; text-transform: uppercase; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* GALLERY & CONTACT */
-        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 15px; margin-bottom: 120px; }
-        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid #333; }
-        @media (max-width: 600px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
-
+        /* FOOTER */
         .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 3px solid var(--gold); display: flex; padding: 12px; z-index: 1000; gap: 10px; }
-        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.8rem; background: #111; padding: 12px; border-radius: 10px; border: 1px solid #333; text-align: center; font-weight: bold; }
+        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.85rem; background: #111; padding: 12px; border-radius: 10px; border: 1px solid #333; text-align: center; font-weight: bold; }
         .g-num { color: var(--gold); display: block; }
     </style>
 </head>
@@ -57,7 +47,14 @@
         <img src="1001089154jpg.jpg" class="hero-banner">
     </div>
 
-    <h2 class="section-h">SHOWREELS</h2>
+    <h2 class="section-h">STAR PERFORMANCES</h2>
+    <div class="video-grid">
+        <div class="v-card"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY" allowfullscreen></iframe></div>
+        <div class="v-card"><iframe src="https://www.youtube.com/embed/8us7_elYkKY" allowfullscreen></iframe></div>
+        <div class="v-card"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs" allowfullscreen></iframe></div>
+    </div>
+
+    <h2 class="section-h">SHOWREELS & MOMENTS</h2>
     <div class="video-grid">
         <div class="v-card"><video controls playsinline preload="metadata" muted><source src="pranit.mp4"></video></div>
         <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1368781368428803_20260424_142803.mp4"></video></div>
@@ -65,20 +62,12 @@
         <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1183034630595565_20260424_142949.mp4"></video></div>
         <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_854298617325533_20260424_143043.mp4"></video></div>
         <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1206133554742695_20260424_143335.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_951956230842437_20260424_141017.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1211636560768726_20260424_141117.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1631882631419382_20260424_140838.mp4"></video></div>
     </div>
 
     <div class="map-section">
         <h2 class="section-h">BHILAI TO BHARAT</h2>
         <div class="map-box">
             <img src="1001095998.jpg" class="india-png">
-            <svg class="wheel-overlay" viewBox="0 0 500 500">
-                <line x1="250" y1="300" x2="350" y2="150" class="line" />
-                <line x1="250" y1="300" x2="150" y2="200" class="line" />
-                <line x1="250" y1="300" x2="400" y2="400" class="line" />
-            </svg>
         </div>
     </div>
 
@@ -92,13 +81,6 @@
             <div class="rev-box">"Energy level was top-notch! Best host for weddings." <span class="client-name">Rajesh Sharma</span><span class="client-city">Mumbai</span></div>
             <div class="rev-box">"Amazing voice and stage presence. Truly professional." <span class="client-name">Amit Verma</span><span class="client-city">Delhi</span></div>
         </div>
-    </div>
-
-    <div class="gallery">
-        <img src="FB_IMG_1776976796509.jpg"> <img src="FB_IMG_1776976802542.jpg">
-        <img src="FB_IMG_1776976813216.jpg"> <img src="FB_IMG_1776976829871.jpg">
-        <img src="FB_IMG_1776976838389.jpg"> <img src="FB_IMG_1776976845221.jpg">
-        <img src="FB_IMG_1776976851032.jpg"> <img src="FB_IMG_1776976855569.jpg">
     </div>
 
     <div class="contact-bar">
