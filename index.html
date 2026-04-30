@@ -3,55 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anchor Pranit | Official</title>
+    <title>Anchor Pranit Official</title>
     <style>
         :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--bg); color: #fff; font-family: sans-serif; overflow-x: hidden; width: 100%; text-align: center; }
 
-        /* HERO CURTAIN SECTION */
+        /* CINEMATIC HERO */
         .poster-area { position: relative; width: 95%; max-width: 800px; margin: 15px auto; border: 3px solid var(--gold); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; }
-        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2s ease-in-out; }
+        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2s ease; }
         .open-curtain .parda-box { transform: translateY(-100%); }
 
-        /* 9 VIDEOS GRID (NO FOLDER) */
+        /* 9 VIDEOS - FIXED PLAYBACK */
         .section-h { color: var(--gold); margin: 35px 0 15px; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; padding: 15px; max-width: 1200px; margin: auto; }
-        .v-card { background: #111; padding: 8px; border-radius: 12px; border: 1px solid #333; }
-        video { width: 100%; border-radius: 8px; background: #000; display: block; }
+        .v-card { background: #111; padding: 5px; border-radius: 10px; border: 1px solid #333; }
+        video { width: 100%; border-radius: 8px; background: #000; display: block; height: auto; }
 
-        /* INDIA MAP (HIGH VISIBILITY) */
+        /* INDIA MAP VISIBLE */
         .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 30px; }
-        .map-box { position: relative; width: 100%; max-width: 340px; margin: auto; border: 1px solid #222; border-radius: 10px; padding: 10px; background: #111; }
+        .map-box { position: relative; width: 100%; max-width: 320px; margin: auto; border: 1px solid #222; border-radius: 10px; padding: 10px; background: #000; }
         .india-svg { width: 100%; height: auto; filter: drop-shadow(0 0 12px var(--gold)); }
-        
-        /* WAGON WHEEL ANIMATION */
-        .wheel-line { stroke: var(--gold); stroke-width: 2.5; stroke-dasharray: 200; stroke-dashoffset: 200; animation: drawShot 4s infinite ease-out; }
-        @keyframes drawShot { 
-            0% { stroke-dashoffset: 200; opacity: 1; } 
-            50% { stroke-dashoffset: 0; opacity: 1; } 
-            100% { opacity: 0; } 
-        }
+        .wheel-line { stroke: var(--gold); stroke-width: 2.5; stroke-dasharray: 200; stroke-dashoffset: 200; animation: draw 4s infinite ease-out; }
+        @keyframes draw { 0% { stroke-dashoffset: 200; opacity: 1; } 50% { stroke-dashoffset: 0; opacity: 1; } 100% { opacity: 0; } }
 
-        /* REVIEW SLIDER (SMOOTH & LOCKED) */
+        /* REVIEW SLIDER */
         .review-slider { width: 100%; overflow: hidden; padding: 40px 0; background: #000; }
-        .review-track { display: flex; width: max-content; animation: scrollRev 30s linear infinite; }
+        .review-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
         .rev-box { width: 270px; flex-shrink: 0; background: #111; margin: 0 15px; padding: 25px; border-radius: 15px; border-left: 5px solid var(--gold); text-align: left; }
-        @keyframes scrollRev { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* 16 PHOTOS POPUP GALLERY */
-        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 15px; margin-bottom: 100px; }
-        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; border: 1px solid #333; cursor: pointer; transition: 0.3s; }
-        .gallery img:hover { border-color: var(--gold); transform: scale(1.03); }
+        /* GALLERY & POPUP */
+        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 10px; margin-bottom: 100px; }
+        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 5px; border: 1px solid #222; }
         @media (max-width: 600px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; }
+        #modal img { max-width: 90%; max-height: 80%; border: 2px solid var(--gold); border-radius: 10px; }
 
-        /* POPUP MODAL */
-        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center; }
-        #modal img { max-width: 90%; max-height: 80%; border: 3px solid var(--gold); border-radius: 10px; }
-
-        /* CONTACT BAR */
-        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 12px; z-index: 1000; gap: 10px; }
+        /* FOOTER BAR */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 10px; z-index: 1000; gap: 10px; }
         .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.9rem; background: #151515; padding: 12px; border-radius: 10px; border: 1px solid #333; text-align: center; }
         .g-num { color: var(--gold); display: block; font-weight: bold; }
     </style>
@@ -63,28 +54,28 @@
         <img src="1001089154jpg.jpg" class="hero-banner">
     </div>
 
-    <h2 class="section-h">STAR PERFORMANCES</h2>
+    <h2 class="section-h">PERFORMANCES</h2>
     <div class="video-grid">
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="pranit.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_1368781368428803_20260424_142803.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_966683099266470_20260424_141216.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_1183034630595565_20260424_142949.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_854298617325533_20260424_143043.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_1206133554742695_20260424_143335.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_951956230842437_20260424_141017.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_1211636560768726_20260424_141117.mp4" type="video/mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata"><source src="FB_VID_1631882631419382_20260424_140838.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="pranit.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1368781368428803_20260424_142803.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_966683099266470_20260424_141216.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1183034630595565_20260424_142949.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_854298617325533_20260424_143043.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1206133554742695_20260424_143335.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_951956230842437_20260424_141017.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1211636560768726_20260424_141117.mp4" type="video/mp4"></video></div>
+        <div class="v-card"><video controls playsinline preload="auto"><source src="FB_VID_1631882631419382_20260424_140838.mp4" type="video/mp4"></video></div>
     </div>
 
     <div class="map-section">
         <h2 class="section-h">BHILAI TO BHARAT</h2>
         <div class="map-box">
             <svg viewBox="0 0 500 550" class="india-svg">
-                <path fill="#222" stroke="white" stroke-width="2" d="M250,50 L310,90 L360,150 L330,260 L390,320 L360,460 L250,540 L140,460 L110,320 L140,160 L190,100 Z" />
-                <line x1="250" y1="310" x2="360" y2="140" class="wheel-line" />
+                <path fill="#1a1a1a" stroke="white" stroke-width="2" d="M250,50 L310,90 L360,150 L330,260 L390,320 L360,460 L250,540 L140,460 L110,320 L140,160 L190,100 Z" />
+                <line x1="250" y1="310" x2="350" y2="150" class="wheel-line" />
                 <line x1="250" y1="310" x2="100" y2="240" class="wheel-line" />
-                <line x1="250" y1="310" x2="420" y2="380" class="wheel-line" />
-                <line x1="250" y1="310" x2="220" y2="520" class="wheel-line" />
+                <line x1="250" y1="310" x2="400" y2="400" class="wheel-line" />
+                <line x1="250" y1="310" x2="200" y2="520" class="wheel-line" />
                 <circle cx="250" cy="310" r="7" fill="#f1c40f" />
             </svg>
         </div>
@@ -102,7 +93,7 @@
     </div>
 
     <h2 class="section-h">STAR MOMENTS</h2>
-    <div class="gallery" id="photoGallery">
+    <div class="gallery" id="gal">
         <img src="FB_IMG_1776976796509.jpg"> <img src="FB_IMG_1776976802542.jpg">
         <img src="FB_IMG_1776976813216.jpg"> <img src="FB_IMG_1776976829871.jpg">
         <img src="FB_IMG_1776976838389.jpg"> <img src="FB_IMG_1776976845221.jpg">
@@ -113,7 +104,7 @@
         <img src="FB_IMG_1776976954929.jpg"> <img src="1001089154jpg.jpg">
     </div>
 
-    <div id="modal"><img id="modalImg"></div>
+    <div id="modal"><img id="mI"></div>
 
     <div class="contact-bar">
         <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
@@ -121,19 +112,12 @@
     </div>
 
     <script>
-        // Parda opening
         window.onload = () => { setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1000); };
-
-        // Photo Popup Logic
-        const modal = document.getElementById("modal");
-        const mImg = document.getElementById("modalImg");
-        document.getElementById("photoGallery").onclick = (e) => {
-            if(e.target.tagName === 'IMG') {
-                modal.style.display = "flex";
-                mImg.src = e.target.src;
-            }
+        const mod = document.getElementById("modal"), mImg = document.getElementById("mI");
+        document.getElementById("gal").onclick = (e) => {
+            if(e.target.tagName === 'IMG') { mod.style.display = "flex"; mImg.src = e.target.src; }
         };
-        modal.onclick = () => { modal.style.display = "none"; };
+        mod.onclick = () => { mod.style.display = "none"; };
     </script>
 </body>
-</html>
+</html
