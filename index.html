@@ -1,61 +1,55 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anchor Pranit | Official Portfolio</title>
+    <title>Anchor Pranit | Official</title>
     <style>
-        :root { --gold: #f1c40f; --bg: #000000; }
+        :root { --gold: #f1c40f; --bg: #000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; text-align: center; overflow-x: hidden; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; text-align: center; overflow-x: hidden; }
 
         /* POSTER CURTAIN SECTION */
-        .poster-area { position: relative; width: 92%; max-width: 450px; margin: 20px auto; overflow: hidden; border-radius: 20px; border: 3px solid var(--gold); aspect-ratio: 4/5; }
-        .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .poster-area { position: relative; width: 92%; max-width: 400px; margin: 20px auto; border: 3px solid var(--gold); border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; background: #111; }
+        .hero-banner { width: 100%; height: 100%; object-fit: cover; }
         .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; transition: 2s ease-in-out; }
-        .curtain-l, .curtain-r { width: 50%; height: 100%; background: #8b0000; background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 20px, #a50000 25px); transition: 2s ease-in-out; position: relative; }
+        .curtain-l, .curtain-r { width: 50%; height: 100%; background: #8b0000; background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 20px, #a50000 25px); transition: 2s; }
         .open-curtain .curtain-l { transform: translateX(-100%); }
         .open-curtain .curtain-r { transform: translateX(100%); }
-        
-        /* Curtain Text */
-        .curtain-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 15; width: 100%; transition: opacity 1s; pointer-events: none; }
-        .open-curtain .curtain-text { opacity: 0; }
-        .main-t { font-size: 2.2rem; font-weight: 900; background: linear-gradient(to right, #bf953f, #fcf6ba, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; }
-        .sub-t { font-size: 1rem; color: #fff; letter-spacing: 2px; font-weight: bold; }
-
-        /* INDIA MAP ANIMATION (FIXED PATH) */
-        .map-section { background: #080808; padding: 40px 10px; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); margin: 30px 0; }
-        .map-wrapper { position: relative; width: 90%; max-width: 350px; margin: auto; }
-        .india-map { width: 100%; opacity: 0.5; display: block; filter: grayscale(1); }
-        .plane {
-            position: absolute; width: 40px; height: 40px;
-            background: url('planepng.png') no-repeat center/contain;
-            z-index: 20;
-            /* Mobile-specific coordinates for plane path */
-            offset-path: path('M 150,300 L 80,250 L 120,150 L 220,150 L 250,250 L 150,300');
-            animation: fly 12s infinite linear;
-        }
-        @keyframes fly { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
+        .curtain-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 15; width: 100%; transition: 1s; color: var(--gold); font-weight: bold; }
+        .open-curtain .curtain-text { opacity: 0; pointer-events: none; }
 
         /* VIDEO SLIDER */
-        .section-h { color: var(--gold); margin: 30px 0 15px; font-size: 1.4rem; text-transform: uppercase; }
+        .section-h { color: var(--gold); margin: 30px 0 10px; font-size: 1.2rem; text-transform: uppercase; }
         .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 10px; scrollbar-width: none; }
-        .v-item { flex: 0 0 85%; height: 350px; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
+        .v-item { flex: 0 0 85%; height: 350px; border-radius: 15px; border: 1px solid #333; background: #111; overflow: hidden; }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* GALLERY & POPUP */
-        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid #222; }
+        /* INDIA MAP ANIMATION */
+        .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 20px; }
+        .map-wrapper { position: relative; width: 300px; height: 300px; margin: auto; border: 1px solid #222; }
+        .india-map { width: 100%; height: 100%; object-fit: contain; opacity: 0.5; }
+        .plane { position: absolute; width: 30px; height: 30px; background: yellow; border-radius: 50%; offset-path: path('M 50,250 Q 150,50 250,250 T 50,250'); animation: fly 10s infinite linear; }
+        @keyframes fly { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
 
-        /* REVIEW SLIDER (Fixed Screen Width) */
+        /* PHOTO GALLERY & POPUP */
+        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; margin-bottom: 80px; }
+        .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; border: 2px solid #222; cursor: pointer; }
+        
+        #img-modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+        #modal-img { max-width: 90%; max-height: 80%; border: 2px solid var(--gold); }
+        #close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; }
+
+        /* REVIEW SLIDER */
         .review-container { overflow: hidden; width: 100%; padding: 20px 0; background: #0a0a0a; }
-        .review-track { display: flex; width: max-content; animation: scroll 25s linear infinite; }
-        .rev-box { width: 250px; padding: 20px; background: #151515; border-radius: 12px; margin: 0 10px; border-left: 3px solid var(--gold); text-align: left; }
+        .review-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
+        .rev-box { width: 250px; padding: 20px; background: #151515; border-radius: 10px; margin: 0 10px; border-left: 3px solid var(--gold); text-align: left; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* CONTACT BAR */
         .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: grid; grid-template-columns: 1fr 1fr; padding: 10px; z-index: 100; gap: 10px; }
-        .c-btn { color: #fff; text-decoration: none; font-size: 0.8rem; background: #111; border-radius: 10px; padding: 8px; border: 1px solid #333; }
+        .c-btn { color: #fff; text-decoration: none; font-size: 14px; background: #111; padding: 10px; border-radius: 10px; border: 1px solid #333; }
         .g-num { color: var(--gold); display: block; font-weight: bold; }
     </style>
 </head>
@@ -63,8 +57,8 @@
 
     <div class="poster-area" id="posterArea">
         <div class="curtain-text">
-            <span class="main-t">ANCHOR PRANIT</span>
-            <span class="sub-t">YOUR ENTERTAINER</span>
+            <h1 style="font-size: 28px;">ANCHOR PRANIT</h1>
+            <p>YOUR ENTERTAINER</p>
         </div>
         <div class="parda-box">
             <div class="curtain-l"></div>
@@ -75,12 +69,12 @@
 
     <h2 class="section-h">STAR PERFORMANCES</h2>
     <div class="v-slider">
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY?modestbranding=1"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY?modestbranding=1"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs?modestbranding=1"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY?modestbranding=1"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY?modestbranding=1"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs?modestbranding=1"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs"></iframe></div>
     </div>
 
     <div class="map-section">
@@ -89,34 +83,60 @@
             <img src="india-map.png" class="india-map"> 
             <div class="plane"></div>
         </div>
-        <p style="color: var(--gold); font-size: 0.7rem; margin-top: 10px;">MUMBAI • DELHI • KOLKATA • GOA • HYDERABAD</p>
     </div>
 
-    <h2 class="section-h">CLIENT REVIEWS</h2>
+    <h2 class="section-h">STAR MOMENTS</h2>
+    <div class="gallery" id="myGallery">
+        <img src="FB_IMG_1776976796509.jpg"> <img src="FB_IMG_1776976802542.jpg">
+        <img src="FB_IMG_1776976813216.jpg"> <img src="FB_IMG_1776976829871.jpg">
+        <img src="FB_IMG_1776976838389.jpg"> <img src="FB_IMG_1776976845221.jpg">
+        <img src="FB_IMG_1776976851032.jpg"> <img src="FB_IMG_1776976855569.jpg">
+        <img src="FB_IMG_1776976877866.jpg"> <img src="FB_IMG_1776976891342.jpg">
+        <img src="FB_IMG_1776976899364.jpg"> <img src="FB_IMG_1776976921737.jpg">
+        <img src="FB_IMG_1776976930511.jpg"> <img src="FB_IMG_1776976944210.jpg">
+        <img src="FB_IMG_1776976954929.jpg"> <img src="1001089154jpg.jpg">
+    </div>
+
+    <div id="img-modal">
+        <span id="close-modal">&times;</span>
+        <img id="modal-img">
+    </div>
+
     <div class="review-container">
         <div class="review-track">
-            <div class="rev-box">"Incredible Energy! Best in Bhilai."</div>
-            <div class="rev-box">"Superb Hosting and Voice!"</div>
-            <div class="rev-box">"Truly Professional Artist."</div>
+            <div class="rev-box">"Incredible Energy!"</div>
+            <div class="rev-box">"Voice Artist Extraordinaire."</div>
+            <div class="rev-box">"Best Host in Bhilai."</div>
             <div class="rev-box">"Made our event hit!"</div>
-            <div class="rev-box">"Incredible Energy! Best in Bhilai."</div>
-            <div class="rev-box">"Superb Hosting and Voice!"</div>
-            <div class="rev-box">"Truly Professional Artist."</div>
+            <div class="rev-box">"Incredible Energy!"</div>
+            <div class="rev-box">"Voice Artist Extraordinaire."</div>
+            <div class="rev-box">"Best Host in Bhilai."</div>
             <div class="rev-box">"Made our event hit!"</div>
         </div>
     </div>
 
     <div class="contact-bar">
-        <a href="tel:7000046203" class="c-btn">DIRECT CALL <span class="g-num">7000046203</span></a>
-        <a href="tel:9371740005" class="c-btn">FOR BOOKING <span class="g-num">9371740005</span></a>
+        <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
+        <a href="tel:9371740005" class="c-btn">BOOKING <span class="g-num">9371740005</span></a>
     </div>
 
     <script>
         window.onload = () => {
-            setTimeout(() => {
-                document.getElementById('posterArea').classList.add('open-curtain');
-            }, 1500);
+            setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1500);
         };
+
+        const modal = document.getElementById("img-modal");
+        const modalImg = document.getElementById("modal-img");
+        const closeModal = document.getElementById("close-modal");
+
+        document.getElementById("myGallery").onclick = (e) => {
+            if (e.target.tagName === 'IMG') {
+                modal.style.display = "flex";
+                modalImg.src = e.target.src;
+            }
+        };
+        closeModal.onclick = () => { modal.style.display = "none"; };
+        modal.onclick = (e) => { if (e.target !== modalImg) modal.style.display = "none"; };
     </script>
 </body>
 </html>
