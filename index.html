@@ -3,62 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anchor Pranit | Wagon Wheel Pro</title>
+    <title>Anchor Pranit | Final Fix</title>
     <style>
         :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #fff; font-family: Arial, sans-serif; overflow-x: hidden; width: 100%; text-align: center; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; overflow-x: hidden; width: 100%; text-align: center; }
 
         /* HERO CURTAIN */
-        .poster-area { position: relative; width: 95%; max-width: 800px; margin: 15px auto; border: 3px solid var(--gold); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; background: #111; }
+        .poster-area { position: relative; width: 95%; max-width: 800px; margin: 15px auto; border: 3px solid var(--gold); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; }
-        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: transform 2s ease-in-out; }
+        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2s ease-in-out; }
         .open-curtain .parda-box { transform: translateY(-100%); }
 
-        /* VIDEOS SECTION */
-        .section-h { color: var(--gold); margin: 30px 0 15px; font-size: 1.4rem; text-transform: uppercase; }
+        /* VIDEO FOLDER */
+        .section-h { color: var(--gold); margin: 30px 0 10px; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 2px; }
         .album-btn { background: var(--gold); color: #000; padding: 12px 25px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; margin-bottom: 20px; }
         .video-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 15px; }
         video { width: 100%; border-radius: 10px; border: 1px solid #333; }
 
-        /* CRICKET WAGON WHEEL MAP ANIMATION */
-        .map-section { padding: 40px 10px; background: #050505; border-top: 2px solid var(--gold); margin-top: 20px; }
-        .map-container { position: relative; width: 320px; height: 380px; margin: auto; background: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/India_map_blank.svg') no-repeat center/contain; filter: invert(1); }
-        
-        .wagon-wheel { position: absolute; top: 55%; left: 50%; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; transform: translate(-50%, -50%); }
-        .shot { position: absolute; top: 50%; left: 50%; height: 2px; background: var(--gold); transform-origin: left; opacity: 0; animation: shot-fire 4s infinite ease-out; }
-        
-        /* Different shots for Wagon Wheel */
-        .shot:nth-child(1) { width: 120px; transform: rotate(-30deg); animation-delay: 0s; }
-        .shot:nth-child(2) { width: 100px; transform: rotate(-90deg); animation-delay: 0.5s; }
-        .shot:nth-child(3) { width: 140px; transform: rotate(45deg); animation-delay: 1s; }
-        .shot:nth-child(4) { width: 110px; transform: rotate(160deg); animation-delay: 1.5s; }
-        .shot:nth-child(5) { width: 130px; transform: rotate(-150deg); animation-delay: 2s; }
+        /* WAGON WHEEL SVG FIX (Screen Locked) */
+        .map-section { padding: 30px 10px; background: #080808; border-top: 2px solid var(--gold); }
+        .map-box { position: relative; width: 100%; max-width: 350px; margin: auto; }
+        .india-svg { width: 100%; height: auto; filter: drop-shadow(0 0 10px var(--gold)); opacity: 0.8; }
+        .wheel-line { stroke: var(--gold); stroke-width: 2; stroke-dasharray: 200; stroke-dashoffset: 200; animation: draw 3s infinite ease-out; }
+        @keyframes draw { 0% { stroke-dashoffset: 200; opacity: 1; } 50% { stroke-dashoffset: 0; opacity: 1; } 100% { opacity: 0; } }
 
-        @keyframes shot-fire {
-            0% { width: 0; opacity: 1; }
-            50% { width: 100%; opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        /* REVIEW SLIDER FIX */
-        .review-slider { width: 100%; overflow: hidden; background: #000; padding: 40px 0; }
-        .review-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
-        .rev-box { width: 260px; flex-shrink: 0; background: #111; margin: 0 15px; padding: 25px; border-radius: 12px; border-left: 5px solid var(--gold); text-align: left; }
+        /* REVIEW SLIDER */
+        .review-slider { width: 100%; overflow: hidden; padding: 30px 0; background: #000; }
+        .review-track { display: flex; width: max-content; animation: scroll 25s linear infinite; }
+        .rev-box { width: 260px; flex-shrink: 0; background: #111; margin: 0 15px; padding: 20px; border-radius: 10px; border-left: 5px solid var(--gold); text-align: left; white-space: normal; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* PHOTO GALLERY GRID (16 IMAGES) */
+        /* 16 PHOTOS GRID & POPUP */
         .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 10px; margin-bottom: 100px; }
-        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; border: 1px solid #222; cursor: pointer; }
+        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 5px; border: 1px solid #222; }
         @media (max-width: 600px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
 
         /* LIGHTBOX POPUP */
-        #img-modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center; }
-        #modal-img { max-width:90%; max-height:80%; border:3px solid var(--gold); border-radius: 10px; }
+        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; }
+        #modal img { max-width: 90%; max-height: 80%; border: 2px solid var(--gold); }
 
-        /* CONTACT BAR */
+        /* BOTTOM BAR */
         .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 10px; z-index: 1000; gap: 10px; }
-        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.9rem; background: #151515; padding: 12px; border-radius: 10px; border: 1px solid #333; text-align: center; }
+        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.8rem; background: #151515; padding: 10px; border-radius: 8px; border: 1px solid #333; text-align: center; }
         .g-num { color: var(--gold); display: block; font-weight: bold; }
     </style>
 </head>
@@ -69,40 +56,41 @@
         <img src="1001089154jpg.jpg" class="hero-banner">
     </div>
 
-    <h2 class="section-h">VIDEO ALBUM</h2>
-    <button class="album-btn" id="openFolder">📁 OPEN FOLDER</button>
-    <div class="video-grid" id="videoGrid">
-        <video controls playsinline preload="none"><source src="pranit.mp4" type="video/mp4"></video>
-        <video controls playsinline preload="none"><source src="FB_VID_1368781368428803_20260424_142803.mp4" type="video/mp4"></video>
-        <video controls playsinline preload="none"><source src="FB_VID_1211636560768726_20260424_141117.mp4" type="video/mp4"></video>
+    <h2 class="section-h">VIDEOS ALBUM</h2>
+    <button class="album-btn" id="vBtn">📁 OPEN VIDEO FOLDER</button>
+    <div class="video-grid" id="vGrid">
+        <video controls playsinline><source src="pranit.mp4" type="video/mp4"></video>
+        <video controls playsinline><source src="FB_VID_1368781368428803_20260424_142803.mp4" type="video/mp4"></video>
+        <video controls playsinline><source src="FB_VID_1211636560768726_20260424_141117.mp4" type="video/mp4"></video>
     </div>
 
     <div class="map-section">
-        <h2 class="section-h">BHILAI TO BHARAT (Wagon Wheel)</h2>
-        <div class="map-container">
-            <div class="wagon-wheel">
-                <div class="shot"></div>
-                <div class="shot"></div>
-                <div class="shot"></div>
-                <div class="shot"></div>
-                <div class="shot"></div>
-            </div>
+        <h2 class="section-h">BHILAI TO BHARAT</h2>
+        <div class="map-box">
+            <svg viewBox="0 0 500 550" class="india-svg">
+                <path fill="#1a1a1a" stroke="white" d="M250,50 L300,100 L350,150 L320,250 L380,300 L350,450 L250,530 L150,450 L120,300 L150,150 L200,100 Z" />
+                <line x1="250" y1="300" x2="350" y2="150" class="wheel-line" />
+                <line x1="250" y1="300" x2="150" y2="200" class="wheel-line" />
+                <line x1="250" y1="300" x2="400" y2="350" class="wheel-line" />
+                <line x1="250" y1="300" x2="250" y2="500" class="wheel-line" />
+                <circle cx="250" cy="300" r="5" fill="#f1c40f" />
+            </svg>
         </div>
     </div>
 
     <div class="review-slider">
         <div class="review-track">
-            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
+            <div class="rev-box">"Best Host in Bhilai! Energy was amazing."</div>
             <div class="rev-box">"Professional Voice Artist, magical presence."</div>
             <div class="rev-box">"Highly recommended for corporate shows."</div>
-            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
+            <div class="rev-box">"Best Host in Bhilai! Energy was amazing."</div>
             <div class="rev-box">"Professional Voice Artist, magical presence."</div>
             <div class="rev-box">"Highly recommended for corporate shows."</div>
         </div>
     </div>
 
     <h2 class="section-h">STAR MOMENTS</h2>
-    <div class="gallery" id="myGallery">
+    <div class="gallery" id="gal">
         <img src="FB_IMG_1776976796509.jpg"> <img src="FB_IMG_1776976802542.jpg">
         <img src="FB_IMG_1776976813216.jpg"> <img src="FB_IMG_1776976829871.jpg">
         <img src="FB_IMG_1776976838389.jpg"> <img src="FB_IMG_1776976845221.jpg">
@@ -113,33 +101,25 @@
         <img src="FB_IMG_1776976954929.jpg"> <img src="1001089154jpg.jpg">
     </div>
 
-    <div id="img-modal"><img id="modal-img"></div>
+    <div id="modal"><img id="mImg"></div>
 
     <div class="contact-bar">
         <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
-        <a href="tel:9371740005" class="c-btn">BOOK <span class="g-num">9371740005</span></a>
+        <a href="tel:9371740005" class="c-btn">BOOKING <span class="g-num">9371740005</span></a>
     </div>
 
     <script>
-        // Curtain Open
         window.onload = () => { setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1000); };
+        
+        const vG = document.getElementById('vGrid');
+        document.getElementById('vBtn').onclick = () => { vG.style.display = (vG.style.display === 'grid') ? 'none' : 'grid'; };
 
-        // Video Toggle
-        const vGrid = document.getElementById('videoGrid');
-        document.getElementById('openFolder').onclick = function() {
-            vGrid.style.display = (vGrid.style.display === 'grid') ? 'none' : 'grid';
+        const mod = document.getElementById("modal");
+        const mI = document.getElementById("mImg");
+        document.getElementById("gal").onclick = (e) => {
+            if(e.target.tagName === 'IMG') { mod.style.display = "flex"; mI.src = e.target.src; }
         };
-
-        // Popup logic
-        const modal = document.getElementById("img-modal");
-        const modalImg = document.getElementById("modal-img");
-        document.getElementById("myGallery").onclick = (e) => {
-            if (e.target.tagName === 'IMG') {
-                modal.style.display = "flex";
-                modalImg.src = e.target.src;
-            }
-        };
-        modal.onclick = () => { modal.style.display = "none"; };
+        mod.onclick = () => { mod.style.display = "none"; };
     </script>
 </body>
 </html>
