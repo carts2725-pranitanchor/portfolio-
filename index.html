@@ -6,95 +6,52 @@
     <title>Anchor Pranit | Bhilai Ki Shaan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --gold: #f1c40f; --bg: #000; }
+        :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; text-align: center; padding-bottom: 100px; }
+        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; text-align: center; padding-bottom: 100px; overflow-x: hidden; }
         .header { padding: 40px 20px; }
         .shaan { color: #fff; letter-spacing: 3px; font-size: 1.1rem; text-transform: uppercase; }
         .name { font-size: 3.2rem; color: var(--gold); font-weight: 900; text-transform: uppercase; }
         
-        /* BANNER SETTINGS */
-        .hero-banner { width: 92%; max-width: 450px; border: 3px solid var(--gold); border-radius: 20px; margin: 20px auto; display: block; }
+        /* CURTAIN BOX & BANNER */
+        .poster-container { position: relative; width: 92%; max-width: 450px; margin: 20px auto; border: 3px solid var(--gold); border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; background: #111; }
+        .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+        .open-parda .parda-box { transform: translateY(-100%); }
         
         .section-h { color: var(--gold); margin: 40px 0 20px; font-size: 1.5rem; text-transform: uppercase; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 5px; }
         
         /* VIDEOS SLIDER */
-        .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 15px; }
-        .v-item { flex: 0 0 85%; height: 400px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
+        .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 15px; scroll-snap-type: x mandatory; }
+        .v-item { flex: 0 0 85%; height: 400px; border-radius: 20px; overflow: hidden; border: 1px solid #333; scroll-snap-align: center; }
         
-        /* 16 PHOTOS - RECTIFIED FILENAMES */
+        /* GALLERY */
         .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
         .gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; border: 2px solid #222; cursor: pointer; }
         
-        /* POP-UP BOX */
+        /* MODAL */
         #img-modal { display: none; position: fixed; z-index: 100000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
         #modal-img { max-width: 95%; max-height: 85%; border: 2px solid var(--gold); border-radius: 10px; }
         
-        /* RATINGS */
-        .rating-section { background: #080808; padding: 40px 20px; border-top: 3px solid var(--gold); margin-top: 50px; }
-        .rating-box { background: #151515; padding: 20px; border-radius: 20px; border: 1px solid var(--gold); margin-bottom: 20px; text-align: left; }
-        .stars { color: var(--gold); font-size: 1rem; margin-bottom: 5px; }
+        /* NEW REVIEW SLIDER (15-20 REVIEWS) */
+        .review-slider-container { width: 100%; overflow: hidden; background: #080808; padding: 40px 0; border-top: 3px solid var(--gold); margin-top: 50px; }
+        .review-track { display: flex; width: max-content; animation: scrollReviews 60s linear infinite; }
+        .rating-box { width: 280px; flex-shrink: 0; background: #151515; padding: 25px; border-radius: 20px; border: 1px solid #333; margin: 0 15px; text-align: left; border-top: 4px solid var(--gold); }
+        .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 8px; }
+        .review-text { font-size: 0.9rem; line-height: 1.4; margin-bottom: 10px; }
+        .client-info { font-weight: bold; color: var(--gold); font-size: 0.85rem; }
+
+        @keyframes scrollReviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         
         /* FOOTER BAR */
         .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: grid; grid-template-columns: 1fr 1fr; padding: 12px 10px; z-index: 9999; gap: 10px; }
-        .c-btn { color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: bold; background: #111; border-radius: 15px; border: 1px solid #333; padding: 10px 5px; }
+        .c-btn { color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: bold; background: #111; border-radius: 15px; border: 1px solid #333; padding: 10px 5px; text-align: center; }
         .g-num { color: var(--gold); font-size: 0.9rem; display: block; }
 
-        /* V2 MAP STYLING */
-        .map-section {
-            background-color: #111;
-            padding: 40px 20px;
-            margin: 40px 0;
-            border-top: 3px solid var(--gold);
-            border-bottom: 3px solid var(--gold);
-        }
-
-        .map-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .india-map {
-            width: 100%;
-            display: block;
-        }
-
-        /* Plane styling */
-        .plane {
-            position: absolute;
-            background-image: url('plane.png'); /* Replace with the actual plane image filename */
-            background-size: contain;
-            background-repeat: no-repeat;
-            width: 30px;
-            height: 30px;
-            animation: movePlane 10s infinite;
-        }
-
-        /* City names style */
-        .city-name {
-            position: absolute;
-            color: #fff;
-            font-size: 12px;
-            font-weight: bold;
-            opacity: 0;
-            animation: flashCity 2s linear infinite;
-        }
-
-        /* Animation for planes */
-        @keyframes movePlane {
-            0% { top: 10%; left: 10%; }
-            50% { top: 50%; left: 50%; }
-            100% { top: 90%; left: 90%; }
-        }
-
-        /* Animation for flashing city names */
-        @keyframes flashCity {
-            0%, 50%, 100% { opacity: 0; }
-            25%, 75% { opacity: 1; }
-        }
-
+        /* MAP STYLING */
+        .map-section { background-color: #111; padding: 40px 20px; margin: 40px 0; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+        .map-wrapper { position: relative; width: 100%; max-width: 600px; margin: 0 auto; }
+        .india-map { width: 100%; display: block; }
     </style>
 </head>
 <body>
@@ -103,29 +60,25 @@
         <h1 class="name">ANCHOR PRANIT</h1>
     </div>
     
-    <img src="1001089154jpg.jpg" class="hero-banner">
+    <div class="poster-container" id="pardaTrigger">
+        <div class="parda-box"></div>
+        <img src="1001089154jpg.jpg" class="hero-banner">
+    </div>
     
     <h2 class="section-h">10 STAR PERFORMANCES</h2>
     <div class="v-slider">
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0"></iframe></div>
-        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_eIYkKY" frameborder="0"></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_elYkKY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_elYkKY" frameborder="0" allowfullscreen></iframe></div>
     </div>
 
     <div class="map-section">
         <h2 class="section-h">INDIA WIDE PRESENCE</h2>
         <div class="map-wrapper">
-            <img src="india-map.png" class="india-map" alt="India Map with State Borders"> <div class="plane"></div>
-            <div class="city-name" style="top: 20%; left: 30%;">Delhi</div>
-            <div class="city-name" style="top: 50%; left: 60%;">Mumbai</div>
-            <div class="city-name" style="top: 80%; left: 40%;">Chennai</div>
+            <img src="india-map.png" class="india-map" alt="India Map">
         </div>
     </div>
 
@@ -143,15 +96,19 @@
 
     <div id="img-modal" onclick="this.style.display='none'"><img id="modal-img"></div>
 
-    <div class="rating-section">
+    <div class="review-slider-container">
         <h2 class="section-h">CLIENT REVIEWS</h2>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Amazing energy! Event ki jaan hain Pranit."</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Bhilai's pride. Professional hosting."</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Great voice quality and crowd management."</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Corporate events ke liye best anchor!"</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Sangeet night memorable bana di. Thank you!"</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Highly recommended for concerts."</p></div>
-        <div class="rating-box"><div class="stars">★★★★★</div><p>"Pure entertainment and high class hosting."</p></div>
+        <div class="review-track">
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Amazing energy! Event ki jaan hain Pranit."</p><span class="client-info">- Rajesh, Mumbai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Bhilai's pride. Professional hosting."</p><span class="client-info">- Amit, Delhi</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Great voice and crowd management."</p><span class="client-info">- Priyanka, Bhilai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Best anchor for corporate events!"</p><span class="client-info">- Suresh, Chennai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Sangeet night memorable bana di."</p><span class="client-info">- Vikram, Nagpur</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Highly recommended for star nights."</p><span class="client-info">- Neha, Pune</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Amazing energy! Event ki jaan hain Pranit."</p><span class="client-info">- Rajesh, Mumbai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Bhilai's pride. Professional hosting."</p><span class="client-info">- Amit, Delhi</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Great voice and crowd management."</p><span class="client-info">- Priyanka, Bhilai</span></div>
+        </div>
     </div>
 
     <div class="contact-bar">
@@ -160,10 +117,150 @@
     </div>
 
     <script>
+        // Open Curtain Animation on Page Load
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('pardaTrigger').classList.add('open-parda');
+            }, 800);
+        };
+
         function openPic(url) {
             document.getElementById('modal-img').src = url;
             document.getElementById('img-modal').style.display = 'flex';
         }
     </script>
 </body>
-    </html>
+</html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchor Pranit | Bhilai Ki Shaan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; text-align: center; padding-bottom: 100px; overflow-x: hidden; }
+        .header { padding: 40px 20px; }
+        .shaan { color: #fff; letter-spacing: 3px; font-size: 1.1rem; text-transform: uppercase; }
+        .name { font-size: 3.2rem; color: var(--gold); font-weight: 900; text-transform: uppercase; }
+        
+        /* CURTAIN BOX & BANNER */
+        .poster-container { position: relative; width: 92%; max-width: 450px; margin: 20px auto; border: 3px solid var(--gold); border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; background: #111; }
+        .hero-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+        .open-parda .parda-box { transform: translateY(-100%); }
+        
+        .section-h { color: var(--gold); margin: 40px 0 20px; font-size: 1.5rem; text-transform: uppercase; border-bottom: 2px solid #333; display: inline-block; padding-bottom: 5px; }
+        
+        /* VIDEOS SLIDER */
+        .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 15px; scroll-snap-type: x mandatory; }
+        .v-item { flex: 0 0 85%; height: 400px; border-radius: 20px; overflow: hidden; border: 1px solid #333; scroll-snap-align: center; }
+        
+        /* GALLERY */
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
+        .gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; border: 2px solid #222; cursor: pointer; }
+        
+        /* MODAL */
+        #img-modal { display: none; position: fixed; z-index: 100000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        #modal-img { max-width: 95%; max-height: 85%; border: 2px solid var(--gold); border-radius: 10px; }
+        
+        /* NEW REVIEW SLIDER (15-20 REVIEWS) */
+        .review-slider-container { width: 100%; overflow: hidden; background: #080808; padding: 40px 0; border-top: 3px solid var(--gold); margin-top: 50px; }
+        .review-track { display: flex; width: max-content; animation: scrollReviews 60s linear infinite; }
+        .rating-box { width: 280px; flex-shrink: 0; background: #151515; padding: 25px; border-radius: 20px; border: 1px solid #333; margin: 0 15px; text-align: left; border-top: 4px solid var(--gold); }
+        .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 8px; }
+        .review-text { font-size: 0.9rem; line-height: 1.4; margin-bottom: 10px; }
+        .client-info { font-weight: bold; color: var(--gold); font-size: 0.85rem; }
+
+        @keyframes scrollReviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        /* FOOTER BAR */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: grid; grid-template-columns: 1fr 1fr; padding: 12px 10px; z-index: 9999; gap: 10px; }
+        .c-btn { color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: bold; background: #111; border-radius: 15px; border: 1px solid #333; padding: 10px 5px; text-align: center; }
+        .g-num { color: var(--gold); font-size: 0.9rem; display: block; }
+
+        /* MAP STYLING */
+        .map-section { background-color: #111; padding: 40px 20px; margin: 40px 0; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+        .map-wrapper { position: relative; width: 100%; max-width: 600px; margin: 0 auto; }
+        .india-map { width: 100%; display: block; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p class="shaan">BHILAI KI SHAAN</p>
+        <h1 class="name">ANCHOR PRANIT</h1>
+    </div>
+    
+    <div class="poster-container" id="pardaTrigger">
+        <div class="parda-box"></div>
+        <img src="1001089154jpg.jpg" class="hero-banner">
+    </div>
+    
+    <h2 class="section-h">10 STAR PERFORMANCES</h2>
+    <div class="v-slider">
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_elYkKY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/eb2c1VEZ_cs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JyJPd_BdwLs" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8nSQub7WxqY" frameborder="0" allowfullscreen></iframe></div>
+        <div class="v-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8us7_elYkKY" frameborder="0" allowfullscreen></iframe></div>
+    </div>
+
+    <div class="map-section">
+        <h2 class="section-h">INDIA WIDE PRESENCE</h2>
+        <div class="map-wrapper">
+            <img src="india-map.png" class="india-map" alt="India Map">
+        </div>
+    </div>
+
+    <h2 class="section-h">16 STAR MOMENTS</h2>
+    <div class="gallery">
+        <img src="FB_IMG_1776976796509.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976802542.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976813216.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976829871.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976838389.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976845221.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976851032.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976855569.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976877866.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976891342.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976899364.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976921737.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976930511.jpg" onclick="openPic(this.src)"> <img src="FB_IMG_1776976944210.jpg" onclick="openPic(this.src)">
+        <img src="FB_IMG_1776976954929.jpg" onclick="openPic(this.src)"> <img src="1001089154jpg.jpg" onclick="openPic(this.src)">
+    </div>
+
+    <div id="img-modal" onclick="this.style.display='none'"><img id="modal-img"></div>
+
+    <div class="review-slider-container">
+        <h2 class="section-h">CLIENT REVIEWS</h2>
+        <div class="review-track">
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Amazing energy! Event ki jaan hain Pranit."</p><span class="client-info">- Rajesh, Mumbai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Bhilai's pride. Professional hosting."</p><span class="client-info">- Amit, Delhi</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Great voice and crowd management."</p><span class="client-info">- Priyanka, Bhilai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Best anchor for corporate events!"</p><span class="client-info">- Suresh, Chennai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Sangeet night memorable bana di."</p><span class="client-info">- Vikram, Nagpur</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Highly recommended for star nights."</p><span class="client-info">- Neha, Pune</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Amazing energy! Event ki jaan hain Pranit."</p><span class="client-info">- Rajesh, Mumbai</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Bhilai's pride. Professional hosting."</p><span class="client-info">- Amit, Delhi</span></div>
+            <div class="rating-box"><div class="stars">★★★★★</div><p class="review-text">"Great voice and crowd management."</p><span class="client-info">- Priyanka, Bhilai</span></div>
+        </div>
+    </div>
+
+    <div class="contact-bar">
+        <a href="tel:7000046203" class="c-btn"><i class="fas fa-phone"></i> CALL <span class="g-num">7000046203</span></a>
+        <a href="tel:9371740005" class="c-btn"><i class="fas fa-calendar"></i> BOOKING <span class="g-num">9371740005</span></a>
+    </div>
+
+    <script>
+        // Open Curtain Animation on Page Load
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('pardaTrigger').classList.add('open-parda');
+            }, 800);
+        };
+
+        function openPic(url) {
+            document.getElementById('modal-img').src = url;
+            document.getElementById('img-modal').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
