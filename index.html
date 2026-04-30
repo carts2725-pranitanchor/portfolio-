@@ -3,49 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anchor Pranit | All 9 Videos</title>
+    <title>Anchor Pranit Official</title>
     <style>
-        :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
+        :root { --gold: #f1c40f; --bg: #000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; overflow-x: hidden; text-align: center; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; text-align: center; }
 
-        /* HERO AREA */
-        .poster-area { position: relative; width: 95%; max-width: 800px; margin: 15px auto; border: 3px solid var(--gold); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; background: #111; }
-        .hero-banner { width: 100%; height: 100%; object-fit: cover; }
-        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2s ease-in-out; }
-        .open-curtain .parda-box { transform: translateY(-100%); }
+        .section-h { color: var(--gold); margin: 30px 0 15px; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 15px; }
+        .v-card { background: #111; padding: 5px; border-radius: 12px; border: 1px solid #333; overflow: hidden; }
+        
+        /* Mobile Video & YouTube Fix */
+        video, iframe { width: 100%; aspect-ratio: 16/9; border-radius: 8px; display: block; background: #000; border: none; }
 
-        /* VIDEO GRID STYLING */
-        .section-h { color: var(--gold); margin: 35px 0 10px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 15px; max-width: 1200px; margin: auto; }
-        .v-card { background: #111; padding: 8px; border-radius: 15px; border: 1px solid #333; overflow: hidden; }
-        video, iframe { width: 100%; border-radius: 10px; background: #000; display: block; aspect-ratio: 16/9; border: none; }
+        /* Map Section - Exact Image Fix */
+        .map-box { width: 90%; max-width: 350px; margin: 20px auto; background: #000; padding: 10px; border-radius: 15px; border: 1px solid var(--gold); }
+        .india-img { width: 100%; height: auto; display: block; border-radius: 10px; }
 
-        /* INDIA MAP */
-        .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 20px; }
-        .map-box { position: relative; width: 100%; max-width: 350px; margin: 20px auto; background: #000; border-radius: 20px; padding: 10px; border: 1px solid #222; }
-        .india-png { width: 100%; height: auto; filter: drop-shadow(0 0 15px var(--gold)); opacity: 0.9; }
-
-        /* REVIEWS SLIDER */
-        .review-slider { width: 100%; overflow: hidden; padding: 40px 0; }
-        .review-track { display: flex; width: max-content; animation: scroll 50s linear infinite; }
-        .rev-box { width: 280px; flex-shrink: 0; background: #111; margin: 0 15px; padding: 25px; border-radius: 15px; border-top: 4px solid var(--gold); text-align: left; }
-        .client-name { color: var(--gold); font-weight: bold; display: block; margin-top: 10px; font-size: 0.95rem; }
-        .client-city { color: #888; font-size: 0.8rem; text-transform: uppercase; }
+        /* Review Slider */
+        .slider-wrap { width: 100%; overflow: hidden; padding: 20px 0; background: #050505; }
+        .track { display: flex; width: max-content; animation: scroll 45s linear infinite; }
+        .rev { width: 260px; margin: 0 15px; background: #111; padding: 20px; border-radius: 10px; border-top: 3px solid var(--gold); text-align: left; }
+        .c-name { color: var(--gold); display: block; margin-top: 10px; font-weight: bold; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* FOOTER */
-        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 3px solid var(--gold); display: flex; padding: 12px; z-index: 1000; gap: 10px; }
-        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.85rem; background: #111; padding: 12px; border-radius: 10px; border: 1px solid #333; text-align: center; font-weight: bold; }
-        .g-num { color: var(--gold); display: block; }
+        /* Contact Bar */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 10px; z-index: 1000; gap: 10px; }
+        .btn { flex: 1; color: #fff; text-decoration: none; background: #111; padding: 12px; border-radius: 8px; border: 1px solid #444; font-size: 0.8rem; font-weight: bold; }
     </style>
 </head>
 <body>
-
-    <div class="poster-area" id="posterArea">
-        <div class="parda-box"></div>
-        <img src="1001089154jpg.jpg" class="hero-banner">
-    </div>
 
     <h2 class="section-h">STAR PERFORMANCES</h2>
     <div class="video-grid">
@@ -54,42 +41,42 @@
         <div class="v-card"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs" allowfullscreen></iframe></div>
     </div>
 
-    <h2 class="section-h">SHOWREELS & MOMENTS</h2>
+    <h2 class="section-h">SHOWREELS</h2>
     <div class="video-grid">
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="pranit.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1368781368428803_20260424_142803.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_966683099266470_20260424_141216.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1183034630595565_20260424_142949.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_854298617325533_20260424_143043.mp4"></video></div>
-        <div class="v-card"><video controls playsinline preload="metadata" muted><source src="FB_VID_1206133554742695_20260424_143335.mp4"></video></div>
+        <div class="v-card"><video controls playsinline muted><source src="pranit.mp4"></video></div>
+        <div class="v-card"><video controls playsinline muted><source src="FB_VID_1368781368428803_20260424_142803.mp4"></video></div>
+        <div class="v-card"><video controls playsinline muted><source src="FB_VID_966683099266470_20260424_141216.mp4"></video></div>
+        <div class="v-card"><video controls playsinline muted><source src="FB_VID_1183034630595565_20260424_142949.mp4"></video></div>
+        <div class="v-card"><video controls playsinline muted><source src="FB_VID_854298617325533_20260424_143043.mp4"></video></div>
+        <div class="v-card"><video controls playsinline muted><source src="FB_VID_1206133554742695_20260424_143335.mp4"></video></div>
     </div>
 
-    <div class="map-section">
-        <h2 class="section-h">BHILAI TO BHARAT</h2>
-        <div class="map-box">
-            <img src="1001095998.jpg" class="india-png">
-        </div>
+    <h2 class="section-h">BHILAI TO BHARAT</h2>
+    <div class="map-box">
+        <img src="india-mappng." class="india-img" alt="India Map">
     </div>
 
     <h2 class="section-h">WHAT CLIENTS SAY</h2>
-    <div class="review-slider">
-        <div class="review-track">
-            <div class="rev-box">"Energy level was top-notch! Best host for weddings." <span class="client-name">Rajesh Sharma</span><span class="client-city">Mumbai</span></div>
-            <div class="rev-box">"Amazing voice and stage presence. Truly professional." <span class="client-name">Amit Verma</span><span class="client-city">Delhi</span></div>
-            <div class="rev-box">"The best anchor in Bhilai, handled the crowd perfectly." <span class="client-name">Priyanka Rao</span><span class="client-city">Bhilai</span></div>
-            <div class="rev-box">"Highly recommended for star nights and concerts." <span class="client-name">Anjali Deshmukh</span><span class="client-city">Nagpur</span></div>
-            <div class="rev-box">"Energy level was top-notch! Best host for weddings." <span class="client-name">Rajesh Sharma</span><span class="client-city">Mumbai</span></div>
-            <div class="rev-box">"Amazing voice and stage presence. Truly professional." <span class="client-name">Amit Verma</span><span class="client-city">Delhi</span></div>
+    <div class="slider-wrap">
+        <div class="track">
+            <div class="rev">"Energy level was top-notch!"<span class="c-name">Rajesh, Mumbai</span></div>
+            <div class="rev">"Professional voice artist."<span class="c-name">Amit, Delhi</span></div>
+            <div class="rev">"Best anchor in Bhilai."<span class="c-name">Priyanka, Bhilai</span></div>
+            <div class="rev">"Amazing corporate host."<span class="c-name">Suresh, Chennai</span></div>
+            <div class="rev">"Energy level was top-notch!"<span class="c-name">Rajesh, Mumbai</span></div>
+            <div class="rev">"Professional voice artist."<span class="c-name">Amit, Delhi</span></div>
+            <div class="rev">"Best anchor in Bhilai."<span class="c-name">Priyanka, Bhilai</span></div>
+            <div class="rev">"Amazing corporate host."<span class="c-name">Suresh, Chennai</span></div>
         </div>
     </div>
 
+    <div style="height: 100px;"></div>
+
     <div class="contact-bar">
-        <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
-        <a href="tel:9371740005" class="c-btn">BOOK <span class="g-num">9371740005</span></a>
+        <a href="tel:7000046203" class="btn">CALL 7000046203</a>
+        <a href="tel:9371740005" class="btn">BOOK 9371740005</a>
     </div>
 
-    <script>
-        window.onload = () => { setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1000); };
-    </script>
 </body>
 </html>
+
