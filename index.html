@@ -1,92 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anchor Pranit | Official</title>
+    <title>Anchor Pranit | 70mm Experience</title>
     <style>
-        :root { --gold: #f1c40f; --bg: #000; }
+        :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; text-align: center; overflow-x: hidden; }
+        body { background: var(--bg); color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; overflow-x: hidden; }
 
-        /* POSTER CURTAIN SECTION */
-        .poster-area { position: relative; width: 92%; max-width: 400px; margin: 20px auto; border: 3px solid var(--gold); border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; background: #111; }
+        /* 70MM CINEMA CURTAIN (POSTER AREA) */
+        .poster-area { position: relative; width: 95%; max-width: 500px; margin: 20px auto; border: 4px solid var(--gold); border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; background: #111; box-shadow: 0 0 20px rgba(241, 196, 15, 0.3); }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; }
-        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; transition: 2s ease-in-out; }
-        .curtain-l, .curtain-r { width: 50%; height: 100%; background: #8b0000; background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 20px, #a50000 25px); transition: 2s; }
-        .open-curtain .curtain-l { transform: translateX(-100%); }
-        .open-curtain .curtain-r { transform: translateX(100%); }
-        .curtain-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 15; width: 100%; transition: 1s; color: var(--gold); font-weight: bold; }
-        .open-curtain .curtain-text { opacity: 0; pointer-events: none; }
+        
+        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .open-curtain .parda-box { transform: translateY(-100%); } /* Upwards opening like Cinema */
 
-        /* VIDEO SLIDER */
-        .section-h { color: var(--gold); margin: 30px 0 10px; font-size: 1.2rem; text-transform: uppercase; }
-        .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 10px; scrollbar-width: none; }
-        .v-item { flex: 0 0 85%; height: 350px; border-radius: 15px; border: 1px solid #333; background: #111; overflow: hidden; }
+        .curtain-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 25; width: 100%; text-align: center; pointer-events: none; }
+        .curtain-text h1 { font-size: 2.5rem; color: var(--gold); text-shadow: 2px 2px 10px #000; margin-bottom: 5px; letter-spacing: 2px; }
+        .curtain-text p { font-size: 1rem; color: #fff; letter-spacing: 5px; font-weight: bold; }
+        .open-curtain .curtain-text { opacity: 0; transition: 1s; }
+
+        /* VIDEOS SECTION */
+        .section-h { color: var(--gold); margin: 40px 0 15px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #222; display: inline-block; padding-bottom: 5px; }
+        .v-slider { display: flex; overflow-x: auto; gap: 15px; padding: 15px; scrollbar-width: none; }
+        .v-item { flex: 0 0 85%; height: 400px; border-radius: 15px; border: 2px solid #333; background: #111; overflow: hidden; position: relative; }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* INDIA MAP ANIMATION */
-        .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 20px; }
-        .map-wrapper { position: relative; width: 300px; height: 300px; margin: auto; border: 1px solid #222; }
-        .india-map { width: 100%; height: 100%; object-fit: contain; opacity: 0.5; }
-        .plane { position: absolute; width: 30px; height: 30px; background: yellow; border-radius: 50%; offset-path: path('M 50,250 Q 150,50 250,250 T 50,250'); animation: fly 10s infinite linear; }
+        /* INDIA MAP (MOBILE OPTIMIZED) */
+        .map-section { padding: 50px 10px; background: radial-gradient(circle, #111, #000); border-top: 2px solid var(--gold); margin-top: 30px; }
+        .map-wrapper { position: relative; width: 100%; max-width: 350px; height: 350px; margin: auto; border: 1px dashed #444; border-radius: 20px; }
+        .india-map { width: 100%; height: 100%; object-fit: contain; opacity: 0.4; }
+        .plane { position: absolute; width: 35px; height: 35px; background: url('planepng.png') no-repeat center/contain; offset-path: path('M 150,300 L 80,250 L 120,150 L 220,150 L 250,250 L 150,300'); animation: fly 15s infinite linear; z-index: 30; }
         @keyframes fly { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
 
-        /* PHOTO GALLERY & POPUP */
-        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; margin-bottom: 80px; }
-        .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; border: 2px solid #222; cursor: pointer; }
-        
-        #img-modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-        #modal-img { max-width: 90%; max-height: 80%; border: 2px solid var(--gold); }
-        #close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; }
+        /* PHOTO GALLERY (POP-UP READY) */
+        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; margin-bottom: 50px; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid #333; cursor: pointer; transition: 0.3s; }
+        .gallery img:hover { border-color: var(--gold); transform: scale(1.02); }
 
-        /* REVIEW SLIDER */
-        .review-container { overflow: hidden; width: 100%; padding: 20px 0; background: #0a0a0a; }
-        .review-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
-        .rev-box { width: 250px; padding: 20px; background: #151515; border-radius: 10px; margin: 0 10px; border-left: 3px solid var(--gold); text-align: left; }
+        /* LIGHTBOX POP-UP */
+        #img-modal { display: none; position: fixed; z-index: 3000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        #modal-img { max-width: 95%; max-height: 80%; border: 3px solid var(--gold); border-radius: 5px; }
+        #close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; cursor: pointer; }
+
+        /* REVIEW SLIDER (Fixed Visibility) */
+        .review-container { overflow: hidden; width: 100%; padding: 30px 0; background: #080808; border-top: 1px solid #222; }
+        .review-track { display: flex; width: max-content; animation: scroll 40s linear infinite; }
+        .rev-box { width: 280px; padding: 25px; background: #111; border-radius: 12px; margin: 0 15px; border: 1px solid #333; border-left: 5px solid var(--gold); text-align: left; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* CONTACT BAR */
-        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: grid; grid-template-columns: 1fr 1fr; padding: 10px; z-index: 100; gap: 10px; }
-        .c-btn { color: #fff; text-decoration: none; font-size: 14px; background: #111; padding: 10px; border-radius: 10px; border: 1px solid #333; }
-        .g-num { color: var(--gold); display: block; font-weight: bold; }
+        /* BOTTOM CONTACT BAR */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; justify-content: space-around; padding: 12px; z-index: 100; gap: 10px; }
+        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.8rem; background: #151515; padding: 10px; border-radius: 8px; border: 1px solid #333; }
+        .g-num { color: var(--gold); display: block; font-weight: bold; font-size: 1rem; margin-top: 3px; }
     </style>
 </head>
 <body>
 
     <div class="poster-area" id="posterArea">
         <div class="curtain-text">
-            <h1 style="font-size: 28px;">ANCHOR PRANIT</h1>
+            <h1>ANCHOR PRANIT</h1>
             <p>YOUR ENTERTAINER</p>
         </div>
-        <div class="parda-box">
-            <div class="curtain-l"></div>
-            <div class="curtain-r"></div>
-        </div>
+        <div class="parda-box"></div>
         <img src="1001089154jpg.jpg" class="hero-banner">
     </div>
 
     <h2 class="section-h">STAR PERFORMANCES</h2>
     <div class="v-slider">
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY"></iframe></div>
-        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY?rel=0&modestbranding=1"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY?rel=0&modestbranding=1"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs?rel=0&modestbranding=1"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8nSQub7WxqY?rel=0&modestbranding=1"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/8us7_eIYkKY?rel=0&modestbranding=1"></iframe></div>
+        <div class="v-item"><iframe src="https://www.youtube.com/embed/eb2c1VEZ_cs?rel=0&modestbranding=1"></iframe></div>
     </div>
 
     <div class="map-section">
         <h2 class="section-h">BHILAI TO BHARAT</h2>
         <div class="map-wrapper">
-            <img src="india-map.png" class="india-map"> 
+            <img src="india-map.png" class="india-map" alt="Checking Map File..."> 
             <div class="plane"></div>
         </div>
     </div>
 
     <h2 class="section-h">STAR MOMENTS</h2>
-    <div class="gallery" id="myGallery">
+    <div class="gallery" id="photoGallery">
         <img src="FB_IMG_1776976796509.jpg"> <img src="FB_IMG_1776976802542.jpg">
         <img src="FB_IMG_1776976813216.jpg"> <img src="FB_IMG_1776976829871.jpg">
         <img src="FB_IMG_1776976838389.jpg"> <img src="FB_IMG_1776976845221.jpg">
@@ -104,38 +104,42 @@
 
     <div class="review-container">
         <div class="review-track">
-            <div class="rev-box">"Incredible Energy!"</div>
-            <div class="rev-box">"Voice Artist Extraordinaire."</div>
-            <div class="rev-box">"Best Host in Bhilai."</div>
-            <div class="rev-box">"Made our event hit!"</div>
-            <div class="rev-box">"Incredible Energy!"</div>
-            <div class="rev-box">"Voice Artist Extraordinaire."</div>
-            <div class="rev-box">"Best Host in Bhilai."</div>
-            <div class="rev-box">"Made our event hit!"</div>
+            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
+            <div class="rev-box">"Amazing Voice Artist, very professional."</div>
+            <div class="rev-box">"Highly recommended for corporate events."</div>
+            <div class="rev-box">"Made our wedding event memorable!"</div>
+            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
+            <div class="rev-box">"Amazing Voice Artist, very professional."</div>
+            <div class="rev-box">"Highly recommended for corporate events."</div>
+            <div class="rev-box">"Made our wedding event memorable!"</div>
         </div>
     </div>
 
     <div class="contact-bar">
-        <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
-        <a href="tel:9371740005" class="c-btn">BOOKING <span class="g-num">9371740005</span></a>
+        <a href="tel:7000046203" class="c-btn">DIRECT CALL <span class="g-num">7000046203</span></a>
+        <a href="tel:9371740005" class="c-btn">FOR BOOKING <span class="g-num">9371740005</span></a>
     </div>
 
     <script>
+        // Cinema Curtain opening
         window.onload = () => {
-            setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1500);
+            setTimeout(() => {
+                document.getElementById('posterArea').classList.add('open-curtain');
+            }, 1500);
         };
 
+        // Photo Pop-up script
         const modal = document.getElementById("img-modal");
         const modalImg = document.getElementById("modal-img");
         const closeModal = document.getElementById("close-modal");
 
-        document.getElementById("myGallery").onclick = (e) => {
+        document.getElementById("photoGallery").onclick = (e) => {
             if (e.target.tagName === 'IMG') {
                 modal.style.display = "flex";
                 modalImg.src = e.target.src;
             }
         };
-        closeModal.onclick = () => { modal.style.display = "none"; };
+        closeModal.onclick = () => modal.style.display = "none";
         modal.onclick = (e) => { if (e.target !== modalImg) modal.style.display = "none"; };
     </script>
 </body>
