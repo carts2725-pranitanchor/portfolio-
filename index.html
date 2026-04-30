@@ -3,153 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anchor Pranit | Official</title>
+    <title>Anchor Pranit | 70mm Experience</title>
     <style>
         :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--bg); color: #fff; font-family: sans-serif; text-align: center; overflow-x: hidden; }
 
-        /* CINEMA CURTAIN (70mm Feel) */
-        .poster-area { position: relative; width: 95%; max-width: 900px; margin: 20px auto; border: 4px solid var(--gold); border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; background: #111; }
+        /* 70MM CURTAIN */
+        .poster-area { position: relative; width: 95%; max-width: 800px; margin: 20px auto; border: 4px solid var(--gold); border-radius: 15px; overflow: hidden; aspect-ratio: 16/9; background: #111; }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; }
-        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2.5s cubic-bezier(.45,.05,.55,.95); }
+        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: 2.5s ease-in-out; }
         .open-curtain .parda-box { transform: translateY(-100%); }
-        .curtain-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 25; width: 100%; }
-        .curtain-text h1 { font-size: clamp(1.5rem, 8vw, 4rem); color: var(--gold); text-shadow: 3px 3px 15px #000; }
-        .open-curtain .curtain-text { opacity: 0; pointer-events: none; }
 
-        /* VIDEO ALBUM GRID */
-        .section-h { color: var(--gold); margin: 40px 0 20px; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
-        .album-btn { background: var(--gold); color: #000; padding: 15px 40px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.2rem; box-shadow: 0 0 20px rgba(241, 196, 15, 0.5); }
-        .video-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: auto; }
-        video { width: 100%; border-radius: 15px; border: 2px solid #333; background: #000; }
-
-        /* INDIA MAP & PLANE FIX (Bhilai to Bharat) */
-        .map-section { padding: 60px 10px; background: #050505; border-top: 2px solid var(--gold); margin-top: 40px; }
-        .map-wrapper { position: relative; width: 100%; max-width: 500px; aspect-ratio: 1/1.1; margin: auto; background: rgba(255,255,255,0.02); border-radius: 15px; display: flex; align-items: center; justify-content: center; }
-        .india-map { width: 90%; height: 90%; object-fit: contain; filter: drop-shadow(0 0 10px var(--gold)); opacity: 0.8; }
+        /* VIDEO ALBUM SECTION */
+        .section-h { color: var(--gold); margin: 30px 0; font-size: 1.5rem; text-transform: uppercase; }
+        .album-btn { background: var(--gold); color: #000; padding: 15px 30px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4); }
+        .video-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 15px; max-width: 1200px; margin: auto; }
         
-        /* The Plane - Icon Fix */
-        .plane { 
-            position: absolute; width: 35px; height: 35px; z-index: 50;
-            background: url('https://cdn-icons-png.flaticon.com/512/784/784844.png') no-repeat center/contain;
-            offset-path: path('M 250,450 Q 100,250 250,50 T 250,450');
-            animation: fly 12s infinite linear;
-        }
+        /* Video Styling */
+        .video-card { background: #111; border-radius: 12px; padding: 5px; border: 1px solid #333; }
+        video { width: 100%; border-radius: 10px; display: block; background: #000; }
+
+        /* MAP & PLANE */
+        .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 20px; }
+        .map-wrapper { position: relative; width: 100%; max-width: 400px; height: 400px; margin: auto; }
+        .india-map { width: 100%; height: 100%; object-fit: contain; opacity: 0.8; filter: drop-shadow(0 0 10px var(--gold)); }
+        .plane { position: absolute; width: 35px; height: 35px; z-index: 30; background: url('https://cdn-icons-png.flaticon.com/512/784/784844.png') no-repeat center/contain; offset-path: path('M 200,350 Q 50,200 200,50 T 200,350'); animation: fly 15s infinite linear; }
         @keyframes fly { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
 
-        /* REVIEW SLIDER FIX (Screen Adjustment) */
-        .review-container { width: 100%; overflow: hidden; background: #000; padding: 50px 0; border-top: 1px solid #222; }
-        .review-track { display: flex; width: max-content; animation: scrollReviews 30s linear infinite; }
-        .rev-box { 
-            width: 300px; padding: 30px; background: #111; margin: 0 15px; 
-            border-radius: 15px; border: 1px solid #333; border-left: 6px solid var(--gold);
-            text-align: left; font-style: italic; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        @keyframes scrollReviews { 
-            0% { transform: translateX(0); } 
-            100% { transform: translateX(-50%); } 
-        }
-
-        /* PHOTO GALLERY */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; padding: 20px; max-width: 1100px; margin: 0 auto 100px; }
-        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid #333; cursor: pointer; }
+        /* REVIEW SLIDER FIXED */
+        .review-container { overflow: hidden; width: 100%; padding: 40px 0; background: #000; }
+        .review-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
+        .rev-box { width: 260px; padding: 20px; background: #111; border-radius: 15px; margin: 0 15px; border-left: 5px solid var(--gold); text-align: left; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* CONTACT BAR */
-        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 3px solid var(--gold); display: flex; padding: 15px; z-index: 1000; gap: 15px; }
-        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 1rem; background: #1a1a1a; padding: 15px; border-radius: 10px; border: 1px solid #333; }
-        .g-num { color: var(--gold); display: block; font-weight: bold; font-size: 1.2rem; }
-
-        /* POPUP MODAL */
-        #img-modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; }
-        #modal-img { max-width:90%; max-height:80%; border:3px solid var(--gold); }
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 10px; z-index: 100; gap: 10px; }
+        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.9rem; background: #151515; padding: 10px; border-radius: 10px; border: 1px solid #333; }
+        .g-num { color: var(--gold); display: block; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div class="poster-area" id="posterArea">
-        <div class="curtain-text">
-            <h1>ANCHOR PRANIT</h1>
-            <p style="color:white; letter-spacing: 5px;">THE ENTERTAINER</p>
-        </div>
         <div class="parda-box"></div>
         <img src="1001089154jpg.jpg" class="hero-banner">
     </div>
 
-    <h2 class="section-h">PERFORMANCE VIDEOS</h2>
+    <h2 class="section-h">STAR PERFORMANCES</h2>
     <button class="album-btn" id="openFolder">📁 OPEN VIDEO ALBUM</button>
     
     <div class="video-grid" id="videoGrid">
-        <video controls preload="metadata"><source src="pranit.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_1368781368428803_20260424_142803.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_966683099266470_20260424_141216.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_1183034630595565_20260424_142949.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_854298617325533_20260424_143043.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_1206133554742695_20260424_143335.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_951956230842437_20260424_141017.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_1211636560768726_20260424_141117.mp4" type="video/mp4"></video>
-        <video controls preload="metadata"><source src="FB_VID_1631882631419382_20260424_140838.mp4" type="video/mp4"></video>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="pranit.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_1368781368428803_20260424_142803.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_966683099266470_20260424_141216.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_1183034630595565_20260424_142949.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_854298617325533_20260424_143043.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_1206133554742695_20260424_143335.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_951956230842437_20260424_141017.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_1211636560768726_20260424_141117.mp4" type="video/mp4"></video></div>
+        <div class="video-card"><video controls playsinline preload="metadata"><source src="FB_VID_1631882631419382_20260424_140838.mp4" type="video/mp4"></video></div>
     </div>
 
     <div class="map-section">
         <h2 class="section-h">BHILAI TO BHARAT</h2>
         <div class="map-wrapper">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/India_map_blank.svg" class="india-map" alt="India Map">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/India_map_blank.svg" class="india-map">
             <div class="plane"></div>
         </div>
     </div>
 
     <div class="review-container">
         <div class="review-track">
-            <div class="rev-box">"Incredible energy on stage! Anchor Pranit made our corporate event hit."</div>
-            <div class="rev-box">"The best voice artist in Bhilai. Very professional and engaging."</div>
-            <div class="rev-box">"Superb hosting! The way he interacts with the audience is magical."</div>
-            <div class="rev-box">"A complete 70mm entertainer for any big event."</div>
-            <div class="rev-box">"Incredible energy on stage! Anchor Pranit made our corporate event hit."</div>
-            <div class="rev-box">"The best voice artist in Bhilai. Very professional and engaging."</div>
-            <div class="rev-box) ">"Superb hosting! The way he interacts with the audience is magical."</div>
-            <div class="rev-box">"A complete 70mm entertainer for any big event."</div>
+            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
+            <div class="rev-box">"Amazing Voice Artist, very professional."</div>
+            <div class="rev-box">"Highly recommended for corporate events."</div>
+            <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
+            <div class="rev-box">"Amazing Voice Artist, very professional."</div>
+            <div class="rev-box">"Highly recommended for corporate events."</div>
         </div>
     </div>
 
-    <h2 class="section-h">STAR MOMENTS</h2>
-    <div class="gallery" id="myGallery">
-        <img src="FB_IMG_1776976796509.jpg"> <img src="FB_IMG_1776976802542.jpg">
-        <img src="FB_IMG_1776976813216.jpg"> <img src="FB_IMG_1776976829871.jpg">
-        <img src="FB_IMG_1776976838389.jpg"> <img src="FB_IMG_1776976845221.jpg">
-        <img src="FB_IMG_1776976851032.jpg"> <img src="FB_IMG_1776976855569.jpg">
-        <img src="FB_IMG_1776976877866.jpg"> <img src="FB_IMG_1776976891342.jpg">
-        <img src="FB_IMG_1776976899364.jpg"> <img src="FB_IMG_1776976921737.jpg">
-        <img src="FB_IMG_1776976930511.jpg"> <img src="FB_IMG_1776976944210.jpg">
-        <img src="FB_IMG_1776976954929.jpg"> <img src="1001089154jpg.jpg">
-    </div>
-
-    <div id="img-modal"><img id="modal-img"></div>
-
     <div class="contact-bar">
-        <a href="tel:7000046203" class="c-btn">DIRECT CALL <span class="g-num">7000046203</span></a>
+        <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
         <a href="tel:9371740005" class="c-btn">BOOKING <span class="g-num">9371740005</span></a>
     </div>
 
     <script>
-        // Parda logic
-        window.onload = () => { setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1500); };
+        window.onload = () => { setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1000); };
 
-        // Video Album Toggle
         const vGrid = document.getElementById('videoGrid');
         const vBtn = document.getElementById('openFolder');
         vBtn.onclick = function() {
-            vGrid.style.display = (vGrid.style.display === 'grid') ? 'none' : 'grid';
-            this.innerText = (vGrid.style.display === 'grid') ? '❌ CLOSE ALBUM' : '📁 OPEN VIDEO ALBUM';
+            if(vGrid.style.display === 'grid') {
+                vGrid.style.display = 'none';
+                vBtn.innerText = '📁 OPEN VIDEO ALBUM';
+            } else {
+                vGrid.style.display = 'grid';
+                vBtn.innerText = '❌ CLOSE ALBUM';
+            }
         };
-
-        // Lightbox
-        const modal = document.getElementById("img-modal");
-        const modalImg = document.getElementById("modal-img");
-        document.getElementById("myGallery").onclick = (e) => {
-            if (e.target.tagName === 'IMG') { modal.style.display = "flex"; modalImg.src = e.target.src; }
-        };
-        modal.onclick = () => { modal.style.display = "none"; };
     </script>
 </body>
 </html>
