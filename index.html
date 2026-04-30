@@ -3,53 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anchor Pranit | 70mm Experience</title>
+    <title>Anchor Pranit | Official</title>
     <style>
         :root { --gold: #f1c40f; --bg: #000; --red: #8b0000; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--bg); color: #fff; font-family: 'Arial', sans-serif; text-align: center; overflow-x: hidden; }
 
-        /* 70MM CINEMA CURTAIN */
-        .poster-area { position: relative; width: 95%; max-width: 800px; margin: 20px auto; border: 4px solid var(--gold); border-radius: 15px; overflow: hidden; aspect-ratio: 16/9; background: #111; }
+        /* 70MM CINEMA CURTAIN - RESPONSIVE */
+        .poster-area { position: relative; width: 95%; max-width: 800px; margin: 20px auto; border: 4px solid var(--gold); border-radius: 15px; overflow: hidden; aspect-ratio: 16/9; background: #111; box-shadow: 0 0 20px rgba(241, 196, 15, 0.4); }
         .hero-banner { width: 100%; height: 100%; object-fit: cover; }
-        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: transform 2.5s ease-in-out; }
+        .parda-box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: var(--red); background-image: repeating-linear-gradient(90deg, #8b0000 0, #8b0000 15px, #a50000 20px); transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1); }
         .open-curtain .parda-box { transform: translateY(-100%); }
         .curtain-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 25; width: 100%; pointer-events: none; }
-        .curtain-text h1 { font-size: clamp(1.5rem, 5vw, 3rem); color: var(--gold); text-transform: uppercase; }
-        .curtain-text p { font-size: clamp(0.7rem, 2vw, 1.2rem); letter-spacing: 4px; color: #fff; margin-top: 5px; }
+        .curtain-text h1 { font-size: clamp(1.8rem, 6vw, 3.5rem); color: var(--gold); text-shadow: 2px 2px 10px #000; }
+        .curtain-text p { font-size: clamp(0.8rem, 3vw, 1.2rem); letter-spacing: 5px; color: #fff; margin-top: 10px; font-weight: bold; }
         .open-curtain .curtain-text { opacity: 0; transition: 1s; }
 
-        /* VIDEO ALBUM BUTTON & GRID */
-        .section-h { color: var(--gold); margin: 40px 0 15px; font-size: 1.5rem; text-transform: uppercase; }
-        .album-btn { background: var(--gold); color: #000; padding: 15px 30px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-bottom: 20px; box-shadow: 0 0 15px var(--gold); }
-        .video-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 15px; max-width: 1200px; margin: auto; }
-        video { width: 100%; border-radius: 12px; border: 1px solid #333; }
+        /* VIDEO ALBUM SECTION */
+        .section-h { color: var(--gold); margin: 40px 0 15px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        .album-btn { background: var(--gold); color: #000; padding: 15px 35px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4); transition: 0.3s; }
+        .album-btn:active { transform: scale(0.95); }
+        .video-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: auto; }
+        video { width: 100%; border-radius: 15px; border: 2px solid #333; background: #000; }
 
-        /* INDIA MAP - SVG FIXED */
-        .map-section { padding: 40px 10px; background: #080808; border-top: 2px solid var(--gold); margin-top: 20px; }
-        .map-wrapper { position: relative; width: 100%; max-width: 400px; height: 400px; margin: auto; background: rgba(255,255,255,0.05); border-radius: 20px; display: flex; align-items: center; justify-content: center; }
-        .india-map { width: 90%; height: 90%; object-fit: contain; opacity: 0.7; filter: drop-shadow(0 0 10px var(--gold)); }
-        .plane { position: absolute; width: 35px; height: 35px; background: url('planepng.png') no-repeat center/contain; z-index: 30; offset-path: path('M 200,350 Q 50,200 200,50 T 200,350'); animation: fly 15s infinite linear; }
+        /* INDIA MAP - DIRECT LINK ADDED */
+        .map-section { padding: 50px 10px; background: radial-gradient(circle, #111, #000); border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); margin-top: 30px; }
+        .map-wrapper { position: relative; width: 100%; max-width: 450px; height: 450px; margin: auto; border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .india-map { width: 95%; height: 95%; object-fit: contain; opacity: 0.8; filter: drop-shadow(0 0 15px rgba(241, 196, 15, 0.5)); }
+        .plane { position: absolute; width: 40px; height: 40px; background: url('planepng.png') no-repeat center/contain; z-index: 30; offset-path: path('M 225,400 Q 50,250 225,50 T 225,400'); animation: fly 15s infinite linear; }
         @keyframes fly { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
 
-        /* PHOTO GALLERY */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; padding: 15px; max-width: 1000px; margin: auto; }
-        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid #333; cursor: pointer; }
+        /* PHOTO GALLERY & POP-UP */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; padding: 15px; max-width: 1100px; margin: 0 auto 100px auto; }
+        .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; border: 2px solid #222; cursor: pointer; transition: 0.3s; }
+        .gallery img:hover { border-color: var(--gold); }
+        #img-modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        #modal-img { max-width: 90%; max-height: 85%; border: 3px solid var(--gold); border-radius: 10px; }
 
-        /* REVIEW SLIDER - SCREEN ADJUSTED */
-        .review-container { overflow: hidden; width: 100%; padding: 40px 0; background: #050505; position: relative; }
-        .review-track { display: flex; width: max-content; animation: scroll 40s linear infinite; }
-        .rev-box { width: 280px; padding: 25px; background: #111; border-radius: 15px; margin: 0 15px; border-left: 5px solid var(--gold); text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        /* REVIEW SLIDER - PERFECTLY ADJUSTED */
+        .review-container { overflow: hidden; width: 100%; padding: 40px 0; background: #080808; margin-top: 20px; border-top: 1px solid #222; }
+        .review-track { display: flex; width: max-content; animation: scroll 35s linear infinite; }
+        .rev-box { width: 280px; padding: 25px; background: #111; border-radius: 15px; margin: 0 15px; border-left: 5px solid var(--gold); text-align: left; box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* LIGHTBOX MODAL */
-        #img-modal { display: none; position: fixed; z-index: 5000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
-        #modal-img { max-width: 90%; max-height: 85%; border: 3px solid var(--gold); }
-
-        /* CONTACT BAR */
-        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 12px; z-index: 100; gap: 10px; }
-        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.9rem; background: #151515; padding: 12px; border-radius: 10px; border: 1px solid #333; }
-        .g-num { color: var(--gold); display: block; font-weight: bold; font-size: 1rem; }
+        /* CONTACT BAR - RESPONSIVE */
+        .contact-bar { position: fixed; bottom: 0; width: 100%; background: #000; border-top: 2px solid var(--gold); display: flex; padding: 15px; z-index: 1000; gap: 15px; }
+        .c-btn { flex: 1; color: #fff; text-decoration: none; font-size: 0.9rem; background: #1a1a1a; padding: 12px; border-radius: 12px; border: 1px solid #333; transition: 0.3s; }
+        .c-btn:hover { background: #222; border-color: var(--gold); }
+        .g-num { color: var(--gold); display: block; font-weight: bold; font-size: 1.1rem; margin-top: 4px; }
     </style>
 </head>
 <body>
@@ -81,7 +82,7 @@
     <div class="map-section">
         <h2 class="section-h">BHILAI TO BHARAT</h2>
         <div class="map-wrapper">
-            <img src="india-map.png" class="india-map" alt="India Map"> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/India_map_blank.svg" class="india-map" alt="India Map"> 
             <div class="plane"></div>
         </div>
     </div>
@@ -105,36 +106,46 @@
             <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
             <div class="rev-box">"Amazing Voice Artist, very professional."</div>
             <div class="rev-box">"Highly recommended for corporate events."</div>
+            <div class="rev-box">"Best entertainer we have ever hired!"</div>
             <div class="rev-box">"Incredible Energy! Best Host in Bhilai."</div>
             <div class="rev-box">"Amazing Voice Artist, very professional."</div>
             <div class="rev-box">"Highly recommended for corporate events."</div>
+            <div class="rev-box">"Best entertainer we have ever hired!"</div>
         </div>
     </div>
 
     <div class="contact-bar">
-        <a href="tel:7000046203" class="c-btn">CALL <span class="g-num">7000046203</span></a>
-        <a href="tel:9371740005" class="c-btn">BOOKING <span class="g-num">9371740005</span></a>
+        <a href="tel:7000046203" class="c-btn">DIRECT CALL <span class="g-num">7000046203</span></a>
+        <a href="tel:9371740005" class="c-btn">FOR BOOKING <span class="g-num">9371740005</span></a>
     </div>
 
     <script>
-        // Parda Opening
+        // Parda Opening logic
         window.onload = () => { setTimeout(() => { document.getElementById('posterArea').classList.add('open-curtain'); }, 1500); };
 
-        // Video Folder Toggle
+        // Video Album Toggle
         const vGrid = document.getElementById('videoGrid');
-        document.getElementById('openFolder').onclick = function() {
-            vGrid.style.display = (vGrid.style.display === 'grid') ? 'none' : 'grid';
-            this.innerText = (vGrid.style.display === 'grid') ? '❌ CLOSE ALBUM' : '📁 OPEN VIDEO ALBUM';
+        const vBtn = document.getElementById('openFolder');
+        vBtn.onclick = function() {
+            if(vGrid.style.display === 'grid') {
+                vGrid.style.display = 'none';
+                vBtn.innerText = '📁 OPEN VIDEO ALBUM';
+            } else {
+                vGrid.style.display = 'grid';
+                vBtn.innerText = '❌ CLOSE ALBUM';
+            }
         };
 
-        // Lightbox Pop-up
+        // Photo Pop-up logic
         const modal = document.getElementById("img-modal");
         const modalImg = document.getElementById("modal-img");
         document.getElementById("myGallery").onclick = (e) => {
-            if (e.target.tagName === 'IMG') { modal.style.display = "flex"; modalImg.src = e.target.src; }
+            if (e.target.tagName === 'IMG') {
+                modal.style.display = "flex";
+                modalImg.src = e.target.src;
+            }
         };
         modal.onclick = () => { modal.style.display = "none"; };
     </script>
 </body>
 </html>
-￼Enter
